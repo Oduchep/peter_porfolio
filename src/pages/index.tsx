@@ -1,4 +1,8 @@
-import { HomeHero, MyExperience } from '@/components/sections/home';
+import {
+  FeaturedProjects,
+  HomeHero,
+  MyExperience,
+} from '@/components/sections/home';
 import { PageSEO } from '@/layout/components';
 
 export default function Home() {
@@ -8,6 +12,7 @@ export default function Home() {
 
       <div>
         <HomeHero />
+        <FeaturedProjects />
         <MyExperience />
       </div>
     </>

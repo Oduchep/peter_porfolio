@@ -13,9 +13,10 @@ interface ButtonTypes {
   iconLeft?: ReactNode;
   style?: CSSProperties | undefined;
   type?: string;
+  dotClassName?: string;
 }
 
-const Bttn = ({
+const Bttn2 = ({
   children,
   loading,
   disabled,
@@ -26,6 +27,7 @@ const Bttn = ({
   iconLeft,
   style,
   type,
+  dotClassName,
   ...props
 }: ButtonTypes) => {
   return (
@@ -41,29 +43,35 @@ const Bttn = ({
         >
           <Link
             href={href}
-            className='!flex w-full items-center justify-center gap-2 px-6 py-2.5'
+            className='!flex w-full items-center justify-between gap-2 px-6 py-2.5'
           >
-            {iconLeft && <span>{iconLeft}</span>}
-            {children}
-            {iconRight && <span>{iconRight}</span>}
+            <div className='!flex w-full items-center justify-center gap-2'>
+              {iconLeft && <span>{iconLeft}</span>}
+              {children}
+              {iconRight && <span>{iconRight}</span>}
+            </div>
+            <span className={`block h-3 w-3 rounded-full ${dotClassName}`} />
           </Link>
         </Button>
       ) : (
         <Button
-          className={`flex w-full items-center justify-center gap-2 text-xs font-semibold capitalize sm:text-sm md:!text-base ${className}`}
+          className={`flex w-full items-center justify-between gap-2 text-xs font-semibold capitalize sm:text-sm md:!text-base ${className}`}
           onClick={onClick}
           loading={loading}
           disabled={disabled || loading}
           style={style}
           {...props}
         >
-          {iconLeft && <span>{iconLeft}</span>}
-          {children}
-          {iconRight && <span>{iconRight}</span>}
+          <div className='!flex w-full items-center justify-center gap-2'>
+            {iconLeft && <span>{iconLeft}</span>}
+            {children}
+            {iconRight && <span>{iconRight}</span>}
+          </div>
+          <span className={`block h-3 w-3 rounded-full ${dotClassName}`} />
         </Button>
       )}
     </>
   );
 };
 
-export default Bttn;
+export default Bttn2;

@@ -1,3 +1,4 @@
+import { ConnectWithMe } from '@/components/widgets';
 import { Footer, Navigations } from '../components';
 
 interface DefaultLayoutProp {
@@ -6,9 +7,10 @@ interface DefaultLayoutProp {
 
 const DefaultLayout = ({ children }: DefaultLayoutProp) => {
   return (
-    <div className='flex h-screen flex-col bg-primary-default text-white'>
+    <div className='flex h-screen flex-col overflow-y-auto bg-primary-default text-white'>
       <Navigations />
       <div>{children}</div>
+      <ConnectWithMe />
       <Footer />
     </div>
   );
