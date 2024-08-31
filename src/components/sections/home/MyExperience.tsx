@@ -5,7 +5,7 @@ import React from 'react';
 const MyExperience = () => {
   return (
     <Wrapper>
-      <Heading2 text="My Experience" />
+      <Heading2 text='My Experience 💼' />
     </Wrapper>
   );
 };

@@ -1,7 +1,9 @@
 import { Bttn2 } from '@/components/elements';
 import { GetSkillsBadge } from '@/components/widgets';
 import { Wrapper } from '@/layout/components';
+import Image from 'next/image';
 import React from 'react';
+import { HeroMemoji } from '../../../../public/assets/images';
 
 const HomeHero = () => {
   const skillset = [
@@ -16,7 +18,7 @@ const HomeHero = () => {
   ];
 
   return (
-    <Wrapper className='grid grid-cols-2 items-center gap-10'>
+    <Wrapper className='grid items-center gap-10 xl:grid-cols-2'>
       <div className='flex flex-col gap-5 md:text-xl md:!leading-9'>
         <p>Hi , I am Peter</p>
 
@@ -45,7 +47,8 @@ const HomeHero = () => {
           Get In Touch
         </Bttn2>
       </div>
-      <div></div>
+
+      <Image src={HeroMemoji} alt='hero image' />
     </Wrapper>
   );
 };

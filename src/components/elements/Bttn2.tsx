@@ -14,6 +14,8 @@ interface ButtonTypes {
   style?: CSSProperties | undefined;
   type?: string;
   dotClassName?: string;
+  target?: string;
+  rel?: string;
 }
 
 const Bttn2 = ({
@@ -28,6 +30,8 @@ const Bttn2 = ({
   style,
   type,
   dotClassName,
+  target = '',
+  rel,
   ...props
 }: ButtonTypes) => {
   return (
@@ -44,6 +48,8 @@ const Bttn2 = ({
           <Link
             href={href}
             className='!flex w-full items-center justify-between gap-2 px-6 py-2.5'
+            target={target}
+            rel={rel}
           >
             <div className='!flex w-full items-center justify-center gap-2'>
               {iconLeft && <span>{iconLeft}</span>}

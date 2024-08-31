@@ -28,7 +28,7 @@ const Display = ({
 }) => {
   return (
     <div
-      className='flex w-fit items-center gap-2 rounded px-3 py-1'
+      className='all__trans flex w-fit items-center gap-2 rounded px-3 py-1 hover:-translate-y-1.5'
       style={{ background: background, color: color }}
     >
       {icon ? (

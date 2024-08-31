@@ -3,6 +3,7 @@ import { Wrapper } from '@/layout/components';
 import { portfolioRoutes } from '@/utils/PortfolioRoutes';
 import React from 'react';
 import { FiExternalLink } from 'react-icons/fi';
+import { ProjectCard } from '../projects';
 
 const FeaturedProjects = () => {
   return (
@@ -15,7 +16,10 @@ const FeaturedProjects = () => {
           in front-end development.👌
         </p>
       </div>
-
+      <div className='grid gap-x-12 gap-y-10 lg:grid-cols-2'>
+        <ProjectCard />
+        <ProjectCard />
+      </div>
       <Bttn
         href={portfolioRoutes.PROJECTS}
         className='mx-auto w-96 rounded-full bg-secondary-default text-base uppercase text-[#0A0A0A]'

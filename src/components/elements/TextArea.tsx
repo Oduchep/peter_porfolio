@@ -30,7 +30,7 @@ const TextArea = React.forwardRef(function TextArea(
       {label && (
         <div className='mb-2 flex items-center'>
           {label && (
-            <div className='flex items-center gap-0.5'>
+            <div className='flex items-center gap-1'>
               <label className={`${labelClassName} text-left`}>{label}</label>
 
               {required && <span className='text-red-500'>*</span>}

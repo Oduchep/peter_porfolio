@@ -45,9 +45,7 @@ const Input = React.forwardRef(function Input(
         <div className='mb-2 flex items-center'>
           {label && (
             <div className='flex items-center gap-1'>
-              <label className={`${labelClassName} text-left font-medium`}>
-                {label}
-              </label>
+              <label className={`${labelClassName} text-left`}>{label}</label>
 
               {required && <span className='text-red-500'>*</span>}
             </div>
