@@ -1,26 +1,70 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  --font-poppins: Poppins, sans-serif;
+  --font-inter: Inter, sans-serif;
+  --font-nunito: Nunito, sans-serif;
+  --font-switzer: Switzer, sans-serif;
+  --font-outfit: Outfit, sans-serif;
+  --font-public-sans: 'Public Sans', sans-serif;
+
+  /* Define your colors directly as CSS variables */
+  --color-primary-default: #000627;
+  --color-secondary-default: #D3E97A;
+  --color-accent: #FF5733;
+  /* New custom color */
+
+  /* Define font families */
+  --font-heading: 'Roboto', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Define breakpoints (prefixed with --breakpoint- for screen variants) */
+  --breakpoint-3xl: 1536px;
+
+  /* Define font sizes (prefixed with --text- for text- utilities) */
+  --text-clamped: clamp(1rem, 2vw + 1rem, 3rem);
+
+  /* Spacing scale (can be used for px-*, mt-*, w-*, h-*, etc.) */
+  --spacing: 0.25rem;
+  /* 1 unit = 0.25rem; so --spacing * 4 = 1rem */
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  font-family: Switzer, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #505154;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  font-family: 'Poppins', sans-serif !important;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+p,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+.all__trans {
+  transition: all ease-in-out;
+  transition-duration: 350ms;
+}
+
+.slow__trans {
+  transition: all ease-in-out;
+  transition-duration: 500ms;
 }
