@@ -1,7 +1,6 @@
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import React, { ReactNode } from 'react';
-import { LuAlertTriangle } from 'react-icons/lu';
 import {
   CSSIcon,
   GithubIcon,
