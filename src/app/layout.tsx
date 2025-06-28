@@ -25,9 +25,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className='dark'>
       <body className={`${inter.variable} ${rubik.variable} antialiased`}>
-        <div className='bg-primary-default flex h-screen flex-col overflow-y-auto text-white'>
+        <div className='dark:bg-primary-default text-primary-default flex h-screen flex-col overflow-y-auto dark:text-white'>
           <Navigations />
           <div>{children}</div>
           <ConnectWithMe />

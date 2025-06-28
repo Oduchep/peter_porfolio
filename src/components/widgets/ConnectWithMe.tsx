@@ -98,7 +98,7 @@ const ConnectWithMe = () => {
               <a
                 key={index}
                 href={socials.href}
-                className='all__trans text-secondary-default text-xl hover:scale-125'
+                className='all__trans text-tertiary-default dark:text-secondary-default text-xl hover:scale-125'
                 target='_blank'
               >
                 {socials?.icon}
@@ -122,7 +122,7 @@ const ConnectWithMe = () => {
             {services?.map((service, index) => (
               <span
                 key={index}
-                className='rounded-full border border-white px-5 py-1.5 text-sm font-medium'
+                className='rounded-full border px-5 py-1.5 text-sm font-medium dark:border-white'
               >
                 {service}
               </span>
@@ -172,7 +172,7 @@ const ConnectWithMe = () => {
           )}
         />
 
-        <CustomButton className='bg-secondary-default rounded-full text-[#0A0A0A] uppercase'>
+        <CustomButton className='bg-tertiary-default dark:bg-secondary-default rounded-full uppercase'>
           Contact Me
         </CustomButton>
       </form>

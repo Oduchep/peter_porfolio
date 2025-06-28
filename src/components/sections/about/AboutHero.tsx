@@ -1,7 +1,7 @@
 import { CustomButton, Heading1 } from '@/components/elements';
 import Image from 'next/image';
 import React from 'react';
-import { HeroMemoji } from '../../../../public/assets/images';
+import { HeroMemoji, PeterGreyShirt } from '../../../../public/assets/images';
 import { externalRoutes } from '@/utils/PortfolioRoutes';
 import { Wrapper } from '../layout';
 
@@ -11,11 +11,11 @@ const AboutHero = () => {
       <div className='flex flex-col gap-5'>
         <Heading1 text='About Me' icon='🙋🏽' />
 
-        <p className='text-secondary-default font-medium md:text-xl md:!leading-9'>
+        <p className='text-tertiary-default dark:text-secondary-default font-medium md:text-xl md:!leading-9'>
           Welcome to my digital playground!
         </p>
 
-        <div className='flex flex-col gap-4 leading-9 text-white/90'>
+        <div className='flex flex-col gap-4 leading-9 dark:text-white/90'>
           <p>
             I&apos;m a passionate Frontend Developer with a knack for crafting
             visually stunning and user-friendly web applications.
@@ -45,8 +45,8 @@ const AboutHero = () => {
         </div>
 
         <CustomButton
-          className='bg-secondary-default mt-10 w-64 rounded-full text-base text-[#0A0A0A] uppercase'
-          dotClassName='bg-[#0A0A0A]'
+          className='bg-tertiary-default dark:bg-secondary-default mt-10 w-64 rounded-full text-base uppercase'
+          dotClassName='bg-white dark:bg-[#0A0A0A]'
           href={externalRoutes?.RESUME}
           target='_blank'
           rel='noopener noreferrer'
@@ -56,8 +56,8 @@ const AboutHero = () => {
       </div>
 
       <div className='flex flex-col gap-4'>
-        <Image src={HeroMemoji} alt='hero image' />
-        <p className='leading-9 text-white/90'>
+        <Image src={PeterGreyShirt} height={700} alt='hero image' />
+        <p className='text-primary-default leading-9 dark:text-white/90'>
           When I&apos;m not glued to my computer screen, you can find me diving
           into detective novels, smashing the ping pong table, or dominating the
           FIFA pitch. Let&apos;s create something amazing together!

@@ -4,7 +4,7 @@ import MobileNav from './MobileNav';
 
 const Navigations = () => {
   return (
-    <div className='sticky top-0 z-[999] bg-primary-default'>
+    <div className='dark:bg-primary-default sticky top-0 z-[999] bg-white'>
       <div className='hidden lg:block'>
         <DesktopNav />
       </div>

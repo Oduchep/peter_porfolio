@@ -23,7 +23,7 @@ const FeaturedProjects = () => {
       </div>
       <CustomButton
         href={portfolioRoutes.PROJECTS}
-        className='bg-secondary-default mx-auto w-96 rounded-full text-base text-[#0A0A0A] uppercase'
+        className='bg-tertiary-default dark:bg-secondary-default mx-auto w-96 rounded-full text-base uppercase'
         iconRight={<FiExternalLink />}
       >
         View all

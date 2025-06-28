@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* --font-poppins: Poppins, sans-serif; */
   --font-inter: Inter, sans-serif;
@@ -8,6 +10,7 @@
   /* Define your colors directly as CSS variables */
   --color-primary-default: #000627;
   --color-secondary-default: #D3E97A;
+  --color-tertiary-default: #EAAA08;
   --color-accent: #FF5733;
   /* New custom color */
 

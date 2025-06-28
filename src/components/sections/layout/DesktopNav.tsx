@@ -13,6 +13,7 @@ import {
   portfolioRoutes,
 } from '@/utils/PortfolioRoutes';
 import { NameLogo } from '../../../../public/assets/images';
+import DarkModeToggle from './DarkModeToggle';
 
 const DesktopNav = () => {
   const pathname = usePathname();
@@ -33,18 +34,17 @@ const DesktopNav = () => {
         <div className='flex items-center gap-10'>
           <ul className='flex justify-around gap-8'>
             {navRoutes?.map((route, index) => (
-              <li
+              <Link
                 key={index}
+                href={route.link}
                 className={`${
                   pathname === route?.link
-                    ? 'border-secondary-default text-secondary-default border-b-2 font-medium'
-                    : 'font-normal text-white'
-                } all__trans hover:text-secondary-default hover:-translate-y-1`}
+                    ? 'border-tertiary-default dark:border-secondary-default text-tertiary-default dark:text-secondary-default border-b-2 font-medium'
+                    : 'hover:-translate-y-1 dark:text-white'
+                } all__trans px-1`}
               >
-                <Link href={route.link} className='px-1'>
-                  {route.label}
-                </Link>
-              </li>
+                <li>{route.label}</li>
+              </Link>
             ))}
           </ul>
 
@@ -61,6 +61,8 @@ const DesktopNav = () => {
               </a>
             ))}
           </div>
+
+          <DarkModeToggle />
         </div>
       </div>
     </nav>

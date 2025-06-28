@@ -9,11 +9,11 @@ const ProjectsHero = () => {
       <div className='flex flex-col gap-5'>
         <Heading1 text='My Projects' icon='✨' />
 
-        <p className='text-secondary-default font-medium md:text-xl md:!leading-9'>
+        <p className='text-tertiary-default dark:text-secondary-default font-medium md:text-xl md:!leading-9'>
           Turning Ideas into Interactive Realities
         </p>
 
-        <div className='flex flex-col gap-4 leading-9 text-white/90'>
+        <div className='flex flex-col gap-4 leading-9 dark:text-white/90'>
           <p>
             Explore my projects where creativity meets code. Each application
             showcases my passion for developing seamless, user-friendly
@@ -23,8 +23,8 @@ const ProjectsHero = () => {
         </div>
 
         <CustomButton
-          className='bg-secondary-default mt-10 w-64 rounded-full text-base text-[#0A0A0A] uppercase'
-          dotClassName='bg-[#0A0A0A]'
+          className='bg-tertiary-default dark:bg-secondary-default mt-10 w-64 rounded-full text-base uppercase'
+          dotClassName='bg-white dark:bg-[#0A0A0A]'
           href={externalRoutes?.RESUME}
           target='_blank'
           rel='noopener noreferrer'
