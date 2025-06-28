@@ -1,11 +1,8 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-poppins: Poppins, sans-serif;
+  /* --font-poppins: Poppins, sans-serif; */
   --font-inter: Inter, sans-serif;
-  --font-nunito: Nunito, sans-serif;
-  --font-switzer: Switzer, sans-serif;
-  --font-outfit: Outfit, sans-serif;
   --font-public-sans: 'Public Sans', sans-serif;
 
   /* Define your colors directly as CSS variables */
@@ -22,7 +19,7 @@
   --breakpoint-3xl: 1536px;
 
   /* Define font sizes (prefixed with --text- for text- utilities) */
-  --text-clamped: clamp(1rem, 2vw + 1rem, 3rem);
+  --text-clamped: clamp(2rem, 2vw + 1rem, 3rem);
 
   /* Spacing scale (can be used for px-*, mt-*, w-*, h-*, etc.) */
   --spacing: 0.25rem;
@@ -30,33 +27,27 @@
 }
 
 :root {
-  font-family: Switzer, system-ui, Avenir, Helvetica, Arial, sans-serif;
-}
-
-body {
-  color: #505154;
-  font-weight: 400;
-  overflow-x: hidden;
+  font-family: var(--font-rubik);
 }
 
 html,
 body {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: var(--font-rubik);
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
 h1,
 h2,
-h3 {
-  font-family: 'Montserrat', sans-serif;
-}
-
-p,
+h3,
 h4,
 h5,
 h6 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-inter);
+}
+
+p {
+  line-height: 30px;
 }
 
 .all__trans {
