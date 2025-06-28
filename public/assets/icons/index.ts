@@ -6,6 +6,8 @@ import TailwindIcon from './tailwind-icon.svg';
 import TypescriptIcon from './typescript-icon.svg';
 import GithubIcon from './github-icon.svg';
 import NextIcon from './next-icon.svg';
+import VueIcon from './vue_icon.svg';
+import GitlabIcon from './gitlab_icon.svg';
 
 export {
   CSSIcon,
@@ -16,4 +18,6 @@ export {
   TypescriptIcon,
   GithubIcon,
   NextIcon,
+  VueIcon,
+  GitlabIcon,
 };
