@@ -49,7 +49,7 @@ const ConnectWithMe = () => {
   const services = ['Hiring', 'Collaboration', 'Tutoring'];
 
   return (
-    <Wrapper className='grid grid-cols-2 gap-32'>
+    <Wrapper className='grid gap-x-32 gap-y-16 lg:grid-cols-2'>
       <div className='relative flex flex-col gap-5'>
         <Heading2 text="Let's Connect 🤝" />
 

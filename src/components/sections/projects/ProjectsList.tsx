@@ -1,27 +1,43 @@
 'use client';
 
+import { CustomTabs } from '@/components/elements';
 import { Wrapper } from '../layout';
+import { Projects } from '@/utils/data';
+import ProjectCard from './ProjectCard';
 
 const ProjectsList = () => {
   const data = [
     {
-      label: 'Company Projects',
-      value: 'company_projects',
-      desc: `It really matters and then like it really doesn't matter.
-      What matters is the people who are sparked by it. And the people 
-      who are like offended by it, it doesn't matter.`,
+      label: 'Public Projects',
+      content: (
+        <div className='grid gap-12 lg:grid-cols-2'>
+          {Projects?.filter((proj) => proj.project_type == 'public')?.map(
+            (project, index) => (
+              <ProjectCard key={index} {...project} />
+            )
+          )}
+        </div>
+      ),
     },
     {
-      label: 'Personal Projects',
-      value: 'personal_projects',
-      desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
+      label: 'Private Projects',
+      content: (
+        <div className='grid gap-12 lg:grid-cols-2'>
+          {Projects?.filter((proj) => proj.project_type == 'private')?.map(
+            (project, index) => (
+              <ProjectCard key={index} {...project} />
+            )
+          )}
+        </div>
+      ),
     },
   ];
 
-  console.log(data);
-
-  return <Wrapper>...</Wrapper>;
+  return (
+    <Wrapper>
+      <CustomTabs headerClassName='w-fit mx-auto' tabs={data} />
+    </Wrapper>
+  );
 };
 
 export default ProjectsList;

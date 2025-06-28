@@ -1,49 +1,52 @@
 import Image from 'next/image';
 import React from 'react';
-import { ProjectSample } from '../../../../public/assets/images';
 import { GetSkillsBadge } from '@/components/widgets';
 import { FiExternalLink } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
+import { ProjectType } from '@/utils/data';
 
-const ProjectCard = () => {
-  const skillset = [
-    'HTML',
-    'CSS',
-    'Tailwind',
-    'JavaScript',
-    'TypeScript',
-    'React',
-    'Git',
-    'Next',
-  ];
-
+const ProjectCard = ({
+  project_name,
+  project_year,
+  project_img,
+  project_desc,
+  tools,
+  github_link,
+  project_link,
+}: ProjectType) => {
   return (
     <div className='flex flex-col gap-7'>
       <div className='flex justify-between'>
-        <h3 className='text-3xl font-bold'>NFT Marketplace</h3>
-        <span>2023</span>
+        <h3 className='text-xl font-bold md:text-3xl'>{project_name}</h3>
+        <span className='text-sm md:text-base'>{project_year}</span>
       </div>
 
-      <Image src={ProjectSample} className='rounded-lg' alt='project sample' />
+      <Image
+        src={project_img}
+        className='rounded-lg'
+        alt={`${project_name} image`}
+      />
 
       <div className='flex flex-col gap-6'>
         <div className='flex items-start justify-between gap-10'>
           <div className='flex flex-wrap items-center gap-3'>
-            {skillset?.map((skill, index) => (
-              <GetSkillsBadge key={index} status={skill} />
+            {tools?.map((tool, index) => (
+              <GetSkillsBadge key={index} status={tool} />
             ))}
           </div>
 
           <div className='flex items-center gap-4 text-2xl'>
+            {github_link && (
+              <a
+                href={github_link}
+                className='all__trans hover:scale-125'
+                target='_blank'
+              >
+                <FaGithub />
+              </a>
+            )}
             <a
-              href='www.google.com'
-              className='all__trans hover:scale-125'
-              target='_blank'
-            >
-              <FaGithub />
-            </a>
-            <a
-              href='www.google.com'
+              href={project_link}
               className='all__trans hover:scale-125'
               target='_blank'
             >
@@ -52,10 +55,7 @@ const ProjectCard = () => {
           </div>
         </div>
 
-        <div>
-          Digital agency is a landing page built with the latest version of
-          next.js using best practices.
-        </div>
+        <p>{project_desc}</p>
       </div>
     </div>
   );
