@@ -1,7 +1,7 @@
 import { CustomButton, Heading1 } from '@/components/elements';
 import Image from 'next/image';
 import React from 'react';
-import { HeroMemoji, PeterGreyShirt } from '../../../../public/assets/images';
+import { PeterGreyShirt } from '../../../../public/assets/images';
 import { externalRoutes } from '@/utils/PortfolioRoutes';
 import { Wrapper } from '../layout';
 
