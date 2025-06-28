@@ -2,7 +2,7 @@ import { CustomButton } from '@/components/elements';
 import { GetSkillsBadge } from '@/components/widgets';
 import Image from 'next/image';
 import React from 'react';
-import { HeroMemoji } from '../../../../public/assets/images';
+import { PeterBlueShirt } from '../../../../public/assets/images';
 import { Wrapper } from '../layout';
 
 const HomeHero = () => {
@@ -13,8 +13,9 @@ const HomeHero = () => {
     'JavaScript',
     'TypeScript',
     'React',
-    'Git',
+    'Github',
     'Next',
+    'Gitlab',
   ];
 
   return (
@@ -48,7 +49,7 @@ const HomeHero = () => {
         </CustomButton>
       </div>
 
-      <Image src={HeroMemoji} alt='hero image' />
+      <Image src={PeterBlueShirt} height={600} alt='hero image' />
     </Wrapper>
   );
 };

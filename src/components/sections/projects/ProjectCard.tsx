@@ -18,7 +18,9 @@ const ProjectCard = ({
     <div className='flex flex-col gap-7'>
       <div className='flex justify-between'>
         <h3 className='text-xl font-bold md:text-3xl'>{project_name}</h3>
-        <span className='text-sm md:text-base'>{project_year}</span>
+        <span className='text-sm text-gray-300 md:text-base'>
+          {project_year}
+        </span>
       </div>
 
       <Image

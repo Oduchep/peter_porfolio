@@ -4,12 +4,14 @@ import React, { ReactNode } from 'react';
 import {
   CSSIcon,
   GithubIcon,
+  GitlabIcon,
   HtmlIcon,
   JavascriptIcon,
   NextIcon,
   ReactIcon,
   TailwindIcon,
   TypescriptIcon,
+  VueIcon,
 } from '../../../public/assets/icons';
 
 const Display = ({
@@ -63,15 +65,21 @@ const GetSkillsBadge = ({ status }: { status: string }) => {
       case 'React':
         component = <Display label={key} src={ReactIcon} />;
         break;
-      case 'Git':
+      case 'Github':
         component = <Display label={key} src={GithubIcon} />;
         break;
       case 'Next':
         component = <Display label={key} src={NextIcon} />;
         break;
+      case 'Vue':
+        component = <Display label={key} src={VueIcon} />;
+        break;
+      case 'Gitlab':
+        component = <Display label={key} src={GitlabIcon} />;
+        break;
 
       default:
-        component = <div>No Badge</div>;
+        component = null;
         break;
     }
 

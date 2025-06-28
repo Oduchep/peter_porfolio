@@ -11,7 +11,8 @@ const MySkillset = () => {
     'JavaScript',
     'TypeScript',
     'React',
-    'Git',
+    'Gitlab',
+    'Github',
     'Next',
   ];
 
