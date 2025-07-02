@@ -64,7 +64,7 @@ const MyExperience = () => {
                 }`}
               >
                 <h3
-                  className={`${exp.id === activeId ? 'text-tertiary-default' : 'text-gray-700 dark:text-white'} text-xl font-semibold`}
+                  className={`${exp.id === activeId ? 'text-white' : 'text-gray-700 dark:text-gray-300'} text-xl font-semibold`}
                 >
                   {exp.company}
                 </h3>
@@ -100,7 +100,7 @@ const MyExperience = () => {
             <div
               className={`h-fit rounded-md bg-[#172135] p-4 transition-colors duration-300`}
             >
-              <h3 className='text-tertiary-default text-xl font-semibold dark:text-white'>
+              <h3 className='text-xl font-semibold text-white'>
                 {exp.company}
               </h3>
               <p className='text-sm text-gray-200 dark:text-gray-500'>
@@ -112,7 +112,7 @@ const MyExperience = () => {
               <h2 className='mb-5 text-xl font-bold md:text-2xl'>
                 {exp.position}
               </h2>
-              <ul className='list-disc space-y-3 pl-5 text-base text-gray-300 md:text-lg'>
+              <ul className='list-disc space-y-3 pl-5 text-base text-gray-600 md:text-lg dark:text-gray-300'>
                 {exp.description.map((desc, index) => (
                   <li key={index}>{desc}</li>
                 ))}
