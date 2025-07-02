@@ -39,7 +39,7 @@ const CustomButton = ({
   ...props
 }: CustomButtonProps) => {
   const baseClasses =
-    'flex max-w-full items-center justify-center gap-2 text-xs font-semibold capitalize sm:text-sm md:text-base px-6 py-3 transition-all duration-200 cursor-pointer';
+    'flex max-w-full items-center justify-center gap-2 font-semibold capitalize text-sm md:text-base px-6 py-3 transition-all duration-200 cursor-pointer';
   const defaultClasses = 'bg-primary-dark text-white dark:text-[#0A0A0A]'; // or use `bg-white text-[#0A0A0A]` if matching the first Input more
   const disabledClasses = 'opacity-50 cursor-not-allowed';
 
