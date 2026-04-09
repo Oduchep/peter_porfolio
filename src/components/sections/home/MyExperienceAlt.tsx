@@ -12,7 +12,7 @@ const MyExperienceAlt = () => {
         title='A track record of turning product goals into shipped frontend outcomes.'
         description={
           <>
-            Over the last few years, I've worked across startups and fast-moving
+            Over the last few years, I&apos;ve worked across startups and fast-moving
             teams where good frontend work had to do more than look nice. It had
             to support growth, improve clarity, and make the product easier to
             trust and adopt.

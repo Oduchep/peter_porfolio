@@ -1,68 +1,97 @@
-import { CustomButton, Heading1 } from '@/components/elements';
-import Image from 'next/image';
-import { PeterGreyShirt } from '../../../../public/assets/images';
+import { CustomButton, SectionHero } from '@/components/elements';
 import { externalRoutes } from '@/utils/PortfolioRoutes';
-import { Wrapper } from '../layout';
 
 const AboutHero = () => {
+  const workingPrinciples = [
+    'Clear UX before visual noise',
+    'Maintainable frontend systems over quick hacks',
+    'Responsive design that feels native on every screen',
+  ];
+
   return (
-    <Wrapper className='grid gap-20 xl:grid-cols-2'>
-      <div className='flex flex-col gap-5'>
-        <Heading1 text='About Me' icon='🙋🏽' />
-
-        <p className='text-tertiary-default dark:text-secondary-default font-medium md:text-xl md:leading-9'>
-          Welcome to my digital playground!
-        </p>
-
-        <div className='flex flex-col gap-4 leading-9 dark:text-white/90'>
+    <SectionHero
+      eyebrow='About'
+      title='Frontend engineering with'
+      accent='taste, discipline, and product empathy.'
+      description={
+        <>
           <p>
-            I&apos;m a passionate Frontend Developer with a knack for crafting
-            visually stunning and user-friendly web applications.
+            I&apos;m Peter Okerulu, a frontend engineer who cares deeply about
+            how products feel in real hands. I build interfaces that are not
+            only visually refined, but also structured to support growth,
+            collaboration, and long-term maintainability.
           </p>
-          <p>
-            My toolkit? A blend of HTML, CSS, JavaScript, TypeScript, React, and
-            Next.js—all the ingredients for pixel-perfect, responsive designs
-            that not only look good but also perform like a charm.
+          <p className='mt-4'>
+            Since starting my journey in 2019, I&apos;ve worked across agency,
+            contract, and startup environments, helping teams ship clearer user
+            journeys, stronger UI systems, and more polished web experiences.
+            Today, I lead frontend work at MAJFintech, where I combine
+            execution, mentoring, and product thinking to move projects forward.
           </p>
-          <p>
-            My tech adventure kicked off in 2019, and since then, it&apos;s been
-            a whirlwind of code, creativity, and continuous learning. Armed with
-            a Bachelor of Science degree from the University of Port Harcourt,
-            I&apos;ve dived deep into the world of web development, sharpening
-            my skills through internships, job roles, and plenty of late-night
-            coding sessions. I&apos;ve had the pleasure of working with some
-            fantastic teams, from my early days at Kwalite Nigeria as a
-            WordPress Developer and Content Manager to my time at Jobgam
-            Technologies, where I supercharged our platform using Next.js and
-            Redux. A personal highlight? Implementing a wallet feature and
-            optimizing our SEO, which not only boosted our user base but also
-            brought in some serious revenue! These days, I&apos;m leading the
-            frontend team at MAJFintech, where I make sure we hit our deadlines,
-            keep our code clean, and pass on the knowledge to the next
-            generation of developers.
-          </p>
-        </div>
-
+        </>
+      }
+      stats={[
+        { value: '2019', label: 'Career start' },
+        { value: '3+', label: 'Years shipping with React and Next.js' },
+        { value: '1', label: 'Product mindset across every build' },
+      ]}
+      primaryAction={
         <CustomButton
-          className='bg-tertiary-default dark:bg-secondary-default mt-10 w-64 rounded-full text-base uppercase'
+          className='bg-tertiary-default dark:bg-secondary-default dark:text-primary-default w-full rounded-full text-base text-white uppercase sm:w-64'
           dotClassName='bg-white dark:bg-[#0A0A0A]'
-          href={externalRoutes?.RESUME}
+          href={externalRoutes.RESUME}
           target='_blank'
           rel='noopener noreferrer'
         >
           Download Resume
         </CustomButton>
-      </div>
+      }
+      secondaryAction={
+        <CustomButton
+          className='w-full rounded-full border border-slate-300 bg-white text-base text-slate-900! uppercase sm:w-56 dark:border-white/10 dark:bg-transparent dark:text-white!'
+          href='mailto:oduchep@gmail.com'
+        >
+          Let&apos;s Talk
+        </CustomButton>
+      }
+      aside={
+        <div className='space-y-6'>
+          <div>
+            <p className='text-xs font-semibold tracking-[0.22em] text-slate-500 uppercase dark:text-white/55'>
+              How I work
+            </p>
+            <h2 className='mt-3 text-2xl font-semibold text-slate-950 dark:text-white'>
+              Thoughtful execution over surface-level polish.
+            </h2>
+          </div>
 
-      <div className='flex flex-col gap-4'>
-        <Image src={PeterGreyShirt} height={700} width={700} alt='hero image' />
-        <p className='text-primary-default leading-9 dark:text-white/90'>
-          When I&apos;m not glued to my computer screen, you can find me diving
-          into detective novels, smashing the ping pong table, or dominating the
-          FIFA pitch. Let&apos;s create something amazing together!
-        </p>
-      </div>
-    </Wrapper>
+          <div className='space-y-3'>
+            {workingPrinciples.map((principle) => (
+              <div
+                key={principle}
+                className='flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-white/3'
+              >
+                <span className='bg-tertiary-default dark:bg-secondary-default mt-1 h-2.5 w-2.5 rounded-full' />
+                <p className='flex-1 text-sm text-slate-600 dark:text-white/72'>
+                  {principle}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className='dark:text-primary-default rounded-3xl bg-[linear-gradient(135deg,#294068_0%,#172135_100%)] p-5 text-white dark:bg-[linear-gradient(135deg,#D3E97A_0%,#B7D24E_100%)]'>
+            <p className='dark:text-primary-default/70 text-xs font-semibold tracking-[0.22em] text-white/70 uppercase'>
+              Outside work
+            </p>
+            <p className='dark:text-primary-default/85 mt-3 text-sm leading-6 text-white/88'>
+              When I&apos;m away from the screen, I recharge with detective
+              novels, table tennis, and the kind of competitive FIFA sessions
+              that keep my reflexes sharp.
+            </p>
+          </div>
+        </div>
+      }
+    />
   );
 };
 
