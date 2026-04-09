@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -28,10 +28,6 @@ const MobileNav = () => {
     },
     { icon: <FaXTwitter />, href: externalRoutes.TWITTER, label: 'Twitter/X' },
   ];
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   return (
     <nav className='dark:bg-primary-default/95 relative border-b border-slate-200/70 bg-white/95 backdrop-blur dark:border-white/10'>
@@ -88,6 +84,7 @@ const MobileNav = () => {
               <li key={route.link}>
                 <Link
                   href={route.link}
+                  onClick={() => setIsOpen(false)}
                   className={`all__trans flex items-center justify-between rounded-2xl border px-4 py-3 text-base font-medium ${
                     isActive
                       ? 'border-tertiary-default bg-tertiary-default/8 text-tertiary-default dark:border-secondary-default dark:bg-secondary-default/10 dark:text-secondary-default'

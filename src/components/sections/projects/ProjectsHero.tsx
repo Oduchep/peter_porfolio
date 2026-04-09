@@ -9,7 +9,7 @@ const ProjectsHero = () => {
       <div className='flex flex-col gap-5'>
         <Heading1 text='My Projects' icon='✨' />
 
-        <p className='text-tertiary-default dark:text-secondary-default font-medium md:text-xl md:!leading-9'>
+        <p className='text-tertiary-default dark:text-secondary-default font-medium md:text-xl md:leading-9'>
           Turning Ideas into Interactive Realities
         </p>
 

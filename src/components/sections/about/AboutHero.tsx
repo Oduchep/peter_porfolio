@@ -1,6 +1,5 @@
 import { CustomButton, Heading1 } from '@/components/elements';
 import Image from 'next/image';
-import React from 'react';
 import { PeterGreyShirt } from '../../../../public/assets/images';
 import { externalRoutes } from '@/utils/PortfolioRoutes';
 import { Wrapper } from '../layout';
@@ -11,7 +10,7 @@ const AboutHero = () => {
       <div className='flex flex-col gap-5'>
         <Heading1 text='About Me' icon='🙋🏽' />
 
-        <p className='text-tertiary-default dark:text-secondary-default font-medium md:text-xl md:!leading-9'>
+        <p className='text-tertiary-default dark:text-secondary-default font-medium md:text-xl md:leading-9'>
           Welcome to my digital playground!
         </p>
 

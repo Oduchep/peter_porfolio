@@ -4,19 +4,13 @@ import { useEffect, useState } from 'react';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Read from localStorage on mount
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
-      setDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setDarkMode(false);
-      document.documentElement.classList.remove('dark');
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
     }
-  }, []);
+
+    return localStorage.getItem('theme') === 'dark';
+  });
 
   // Update localStorage and HTML class on theme change
   useEffect(() => {
