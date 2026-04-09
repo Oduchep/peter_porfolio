@@ -21,8 +21,9 @@ export async function POST(request: Request) {
       stripUnknown: true,
     });
 
-    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } = process.env;
-    const toEmail = process.env.CONTACT_TO_EMAIL || 'oduchep@gmail.com';
+    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO_EMAIL } =
+      process.env;
+    const toEmail = CONTACT_TO_EMAIL || 'oduchep@gmail.com';
     const fromEmail = process.env.CONTACT_FROM_EMAIL || SMTP_USER;
 
     if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !fromEmail) {

@@ -163,10 +163,10 @@ const ConnectWithMe = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col gap-8 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_70px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-white/4 md:p-8'
+        className='flex flex-col gap-8 rounded-4xl border border-slate-200 bg-white p-6 shadow-[0_20px_70px_rgba(15,23,42,0.08)] md:p-8 dark:border-white/10 dark:bg-white/4'
       >
         <div>
-          <label className='block text-sm font-medium text-slate-700 dark:text-white/80'>
+          <label className='block font-medium text-slate-700 dark:text-white/90'>
             Choose A Service
           </label>
 
@@ -183,9 +183,9 @@ const ConnectWithMe = () => {
                       key={service}
                       type='button'
                       onClick={() => field.onChange(service)}
-                      className={`all__trans rounded-full border px-5 py-2 text-sm font-medium ${
+                      className={`all__trans rounded-full border px-5 py-1.5 text-sm font-medium ${
                         isActive
-                          ? 'border-tertiary-default bg-tertiary-default text-white dark:border-secondary-default dark:bg-secondary-default dark:text-primary-default'
+                          ? 'border-tertiary-default bg-tertiary-default dark:border-secondary-default dark:bg-secondary-default dark:text-primary-default text-white'
                           : 'border-slate-300 bg-slate-50 text-slate-700 hover:border-slate-400 hover:bg-slate-100 dark:border-white/12 dark:bg-white/5 dark:text-white dark:hover:bg-white/8'
                       }`}
                     >
@@ -264,13 +264,14 @@ const ConnectWithMe = () => {
         <CustomButton
           type='submit'
           loading={isSubmitting}
-          className='bg-tertiary-default dark:bg-secondary-default rounded-full uppercase text-white dark:text-primary-default'
+          className='bg-tertiary-default dark:bg-secondary-default dark:text-primary-default rounded-full text-white uppercase'
         >
           Send Message
         </CustomButton>
 
         <p className='text-sm leading-6 text-slate-500 dark:text-white/60'>
-          Messages go directly to <span className='font-medium'>oduchep@gmail.com</span>.
+          Messages go directly to&nbsp;
+          <span className='font-medium'>oduchep@gmail.com</span>.
         </p>
       </form>
     </Wrapper>
