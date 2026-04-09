@@ -35,7 +35,7 @@ const ProjectsList = () => {
 
   return (
     <Wrapper>
-      <CustomTabs headerClassName='w-fit mx-auto' tabs={data} />
+      <CustomTabs tabs={data} />
     </Wrapper>
   );
 };
