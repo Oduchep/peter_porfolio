@@ -21,7 +21,7 @@ const CustomTabs: React.FC<TabProps> = ({ tabs, headerClassName }) => {
         <div
           role='tablist'
           aria-label='Project categories'
-          className={`mx-auto flex w-max min-w-full items-center justify-start gap-3 rounded-4xl border border-slate-200/80 bg-white/80 p-2 shadow-[0_18px_60px_rgba(15,23,42,0.08)] backdrop-blur dark:border-white/10 dark:bg-white/5 ${headerClassName}`}
+          className={`mx-auto flex w-max min-w-full items-center justify-start gap-3 rounded-4xl border border-slate-200/80 bg-white/80 p-2 backdrop-blur dark:border-white/10 dark:bg-white/5 ${headerClassName}`}
         >
           {tabs.map((tab, index) => (
             <button

@@ -5,3 +5,4 @@ export { default as CustomInput } from './CustomInput';
 export { default as CustomButton } from './CustomButton';
 export { default as CustomTabs } from './CustomTabs';
 export { default as SectionHero } from './SectionHero';
+export { default as SectionIntro } from './SectionIntro';

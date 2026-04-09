@@ -55,7 +55,7 @@ const AboutHero = () => {
       </div>
 
       <div className='flex flex-col gap-4'>
-        <Image src={PeterGreyShirt} height={700} alt='hero image' />
+        <Image src={PeterGreyShirt} height={700} width={700} alt='hero image' />
         <p className='text-primary-default leading-9 dark:text-white/90'>
           When I&apos;m not glued to my computer screen, you can find me diving
           into detective novels, smashing the ping pong table, or dominating the

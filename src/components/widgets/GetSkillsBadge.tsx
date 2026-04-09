@@ -19,7 +19,7 @@ const Display = ({
   icon,
   src,
   background = '#172135',
-  color = 'white',
+  color = '#FFFFFF',
 }: {
   label: string;
   icon?: string | ReactNode;
@@ -29,15 +29,15 @@ const Display = ({
 }) => {
   return (
     <div
-      className='all__trans flex w-fit items-center gap-2 rounded px-3 py-1 hover:-translate-y-1.5'
+      className='all__trans flex w-fit items-center gap-2 rounded-full border border-slate-200/80 px-3.5 py-1.5 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)] dark:border-white/10'
       style={{ background: background, color: color }}
     >
       {icon ? (
-        <div className='text-lg'>{icon}</div>
+        <div className='text-base'>{icon}</div>
       ) : src ? (
         <Image src={src} width={14} height={14} alt='icon' />
       ) : null}
-      <span className='text-sm capitalize'>{label}</span>
+      <span className='text-sm font-medium capitalize'>{label}</span>
     </div>
   );
 };
