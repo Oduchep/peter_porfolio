@@ -10,7 +10,7 @@ const ProjectsList = () => {
     {
       label: 'Public Projects',
       content: (
-        <div className='grid gap-12 lg:grid-cols-2'>
+        <div className='grid gap-12 md:gap-16 lg:grid-cols-2'>
           {Projects?.filter((proj) => proj.project_type == 'public')?.map(
             (project, index) => (
               <ProjectCard key={index} {...project} />
@@ -22,7 +22,7 @@ const ProjectsList = () => {
     {
       label: 'Private Projects',
       content: (
-        <div className='grid gap-12 lg:grid-cols-2'>
+        <div className='grid gap-12 md:gap-16 lg:grid-cols-2'>
           {Projects?.filter((proj) => proj.project_type == 'private')?.map(
             (project, index) => (
               <ProjectCard key={index} {...project} />

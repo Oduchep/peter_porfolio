@@ -4,3 +4,4 @@ export { default as CustomTextArea } from './CustomTextArea';
 export { default as CustomInput } from './CustomInput';
 export { default as CustomButton } from './CustomButton';
 export { default as CustomTabs } from './CustomTabs';
+export { default as SectionHero } from './SectionHero';

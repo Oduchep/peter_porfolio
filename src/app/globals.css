@@ -49,9 +49,6 @@ h6 {
   font-family: var(--font-inter);
 }
 
-p {
-  line-height: 30px;
-}
 
 .all__trans {
   transition: all ease-in-out;
