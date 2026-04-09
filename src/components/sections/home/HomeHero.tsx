@@ -111,9 +111,9 @@ const HomeHero = () => {
       </div>
 
       <div className='relative mx-auto w-full max-w-136'>
-        <div className='absolute inset-0 rounded-[2.6rem] bg-[linear-gradient(135deg,rgba(41,64,104,0.14),rgba(15,23,42,0.03))] blur-2xl dark:bg-[linear-gradient(135deg,rgba(211,233,122,0.16),rgba(255,255,255,0.04))]' />
-        <div className='relative overflow-hidden rounded-[2.4rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.96)_100%)] p-4 shadow-[0_24px_80px_rgba(15,23,42,0.1)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)]'>
-          <div className='mb-4 flex items-center justify-between rounded-[1.6rem] border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-white/60'>
+        <div className='absolute inset-0 rounded-4xl bg-[linear-gradient(135deg,rgba(41,64,104,0.14),rgba(15,23,42,0.03))] blur-2xl dark:bg-[linear-gradient(135deg,rgba(211,233,122,0.16),rgba(255,255,255,0.04))]' />
+        <div className='relative overflow-hidden rounded-4xl border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(248,250,252,0.96)_100%)] p-4 shadow-[0_24px_80px_rgba(15,23,42,0.1)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)]'>
+          <div className='mb-4 flex items-center justify-between rounded-3xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-500 dark:border-white/10 dark:bg-white/5 dark:text-white/60'>
             <span className='flex-1'>
               Currently shaping user experiences at MAJFintech
             </span>
@@ -134,26 +134,36 @@ const HomeHero = () => {
           </div>
 
           <div className='mt-4 grid gap-3 sm:grid-cols-2'>
-            <div className='rounded-[1.4rem] bg-slate-100 p-4 dark:bg-white/6'>
+            <div className='rounded-2xl bg-slate-100 p-4 dark:bg-white/6'>
               <p className='text-xs tracking-[0.2em] text-slate-500 uppercase dark:text-white/50'>
                 Focus
               </p>
-              <p className='mt-2 text-sm leading-6 text-slate-700 dark:text-white/78'>
+              <p className='mt-2 text-sm leading-5 text-slate-700 dark:text-white/78'>
                 Product interfaces that stay elegant even as the feature set
                 grows.
               </p>
             </div>
-            <div className='bg-tertiary-default dark:bg-secondary-default dark:text-primary-default rounded-[1.4rem] p-4 text-white'>
+            <div className='bg-tertiary-default dark:bg-secondary-default dark:text-primary-default rounded-2xl p-4 text-white'>
               <p className='dark:text-primary-default/70 text-xs tracking-[0.2em] text-white/70 uppercase'>
                 Explore
               </p>
-              <a
-                href={portfolioRoutes.PROJECTS}
-                className='mt-2 inline-flex items-center gap-2 text-sm font-medium'
-              >
-                Selected projects
-                <FiArrowRight />
-              </a>
+
+              <div className='mt-2 flex flex-col gap-2'>
+                <a
+                  href={portfolioRoutes.PROJECTS}
+                  className='inline-flex items-center gap-2 text-sm font-medium'
+                >
+                  My projects
+                  <FiArrowRight />
+                </a>
+                <a
+                  href={portfolioRoutes.ABOUT}
+                  className='inline-flex items-center gap-2 text-sm font-medium'
+                >
+                  About Me
+                  <FiArrowRight />
+                </a>
+              </div>
             </div>
           </div>
         </div>
