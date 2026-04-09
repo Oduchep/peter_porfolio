@@ -178,7 +178,7 @@ const MyExperience = () => {
             id={exp.id}
             className='rounded-3xl border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)] p-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)]'
           >
-            <div className='flex items-start justify-between gap-4'>
+            <div className='flex flex-col gap-4'>
               <div>
                 <div className='inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold tracking-[0.18em] text-slate-500 uppercase dark:bg-white/6 dark:text-white/55'>
                   {String(index + 1).padStart(2, '0')}
@@ -191,7 +191,7 @@ const MyExperience = () => {
                 </p>
               </div>
 
-              <div className='text-right text-xs tracking-[0.18em] text-slate-500 uppercase dark:text-white/50'>
+              <div className='text-xs tracking-[0.18em] text-slate-500 uppercase dark:text-white/50'>
                 <p>{exp.duration}</p>
                 <p className='mt-2'>{exp.location}</p>
               </div>
