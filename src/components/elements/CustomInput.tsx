@@ -32,16 +32,17 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
     ref
   ) => {
     const containerClass = `
-      all__trans flex w-full items-center gap-2 rounded-md border border-white bg-white p-3 
-      text-[#0A0A0A] focus-within:border-secondary-default focus-within:bg-transparent 
-      focus-within:text-white focus-within:outline-0 
-      ${disabled ? 'bg-gray-100' : ''}
+      all__trans flex w-full items-center gap-2 rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3
+      text-slate-900 shadow-sm focus-within:border-tertiary-default focus-within:bg-white
+      focus-within:ring-4 focus-within:ring-slate-200/70 focus-within:outline-0
+      dark:border-white/12 dark:bg-white/5 dark:text-white dark:focus-within:border-secondary-default
+      dark:focus-within:bg-white/8 dark:focus-within:ring-white/10
+      ${disabled ? 'cursor-not-allowed bg-slate-100 text-slate-400 dark:bg-white/5 dark:text-white/40' : ''}
       ${className}
     `.trim();
 
     const inputClass = `
-      all__trans w-full outline-0 
-      ${disabled ? 'bg-gray-100' : 'bg-transparent'}
+      all__trans w-full bg-transparent outline-0 placeholder:text-slate-400 dark:placeholder:text-white/35
     `.trim();
 
     return (
@@ -49,7 +50,11 @@ const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
         {label && (
           <div className='mb-2 flex items-center'>
             <div className='flex items-center gap-1'>
-              <label className={`${labelClassName} text-left`}>{label}</label>
+              <label
+                className={`${labelClassName} text-left text-sm font-medium text-slate-700 dark:text-white/80`}
+              >
+                {label}
+              </label>
               {required && <span className='text-red-500'>*</span>}
             </div>
           </div>

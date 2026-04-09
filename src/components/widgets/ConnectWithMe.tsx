@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CustomButton,
   Heading2,
@@ -14,21 +14,14 @@ import Image from 'next/image';
 import { SmokeImg } from '../../../public/assets/images';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { emailRegex } from '@/schema/schemaRegex';
 import { Wrapper } from '../sections/layout';
+import {
+  contactFormSchema,
+  contactServices,
+  type ContactFormValues,
+} from '@/schema/contactFormSchema';
 
 const ConnectWithMe = () => {
-  const contactFormSchema = yup.object().shape({
-    full_name: yup.string().required('Project name is required!'),
-    email: yup
-      .string()
-      .email()
-      .matches(emailRegex, 'Invalid email format')
-      .required('Email is required'),
-    message: yup.string().required('Project name is required!'),
-  });
-
   const social_links = [
     { icon: <FaGithub />, href: externalRoutes.GITHUB },
     {
@@ -38,15 +31,69 @@ const ConnectWithMe = () => {
     { icon: <FaXTwitter />, href: externalRoutes.TWITTER },
   ];
 
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: 'idle' | 'success' | 'error';
+    text: string;
+  }>({
+    type: 'idle',
+    text: '',
+  });
+
   const {
     control,
     handleSubmit,
-    formState: { errors },
-  } = useForm({
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<ContactFormValues>({
     resolver: yupResolver(contactFormSchema),
+    defaultValues: {
+      full_name: '',
+      email: '',
+      service: 'Hiring',
+      message: '',
+    },
   });
 
-  const services = ['Hiring', 'Collaboration', 'Tutoring'];
+  const onSubmit = async (values: ContactFormValues) => {
+    setSubmitMessage({ type: 'idle', text: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || 'Something went wrong while sending your message.'
+        );
+      }
+
+      reset({
+        full_name: '',
+        email: '',
+        service: 'Hiring',
+        message: '',
+      });
+      setSubmitMessage({
+        type: 'success',
+        text: data.message || 'Your message has been sent successfully.',
+      });
+    } catch (error) {
+      setSubmitMessage({
+        type: 'error',
+        text:
+          error instanceof Error
+            ? error.message
+            : 'Something went wrong while sending your message.',
+      });
+    }
+  };
 
   return (
     <Wrapper className='grid gap-x-32 gap-y-16 lg:grid-cols-2'>
@@ -109,25 +156,52 @@ const ConnectWithMe = () => {
 
         <Image
           src={SmokeImg}
-          className='absolute -bottom-20'
+          className='absolute -bottom-20 opacity-70'
           alt='smoke image'
         />
       </div>
 
-      <form onSubmit={() => handleSubmit} className='flex flex-col gap-8'>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className='flex flex-col gap-8 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_70px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-white/4 md:p-8'
+      >
         <div>
-          <label className='block'>Choose A Service</label>
+          <label className='block text-sm font-medium text-slate-700 dark:text-white/80'>
+            Choose A Service
+          </label>
 
-          <div className='mt-4 flex items-center gap-4'>
-            {services?.map((service, index) => (
-              <span
-                key={index}
-                className='rounded-full border px-5 py-1.5 text-sm font-medium dark:border-white'
-              >
-                {service}
-              </span>
-            ))}
-          </div>
+          <Controller
+            control={control}
+            name='service'
+            render={({ field }) => (
+              <div className='mt-4 flex flex-wrap items-center gap-3'>
+                {contactServices.map((service) => {
+                  const isActive = field.value === service;
+
+                  return (
+                    <button
+                      key={service}
+                      type='button'
+                      onClick={() => field.onChange(service)}
+                      className={`all__trans rounded-full border px-5 py-2 text-sm font-medium ${
+                        isActive
+                          ? 'border-tertiary-default bg-tertiary-default text-white dark:border-secondary-default dark:bg-secondary-default dark:text-primary-default'
+                          : 'border-slate-300 bg-slate-50 text-slate-700 hover:border-slate-400 hover:bg-slate-100 dark:border-white/12 dark:bg-white/5 dark:text-white dark:hover:bg-white/8'
+                      }`}
+                    >
+                      {service}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          />
+
+          {errors.service?.message && (
+            <p className='mt-2 ml-1 text-sm text-red-500'>
+              {errors.service.message}
+            </p>
+          )}
         </div>
 
         <Controller
@@ -139,6 +213,7 @@ const ConnectWithMe = () => {
               type='text'
               placeholder='Enter full name'
               error={errors.full_name?.message}
+              required
               {...field}
             />
           )}
@@ -153,6 +228,7 @@ const ConnectWithMe = () => {
               type='email'
               placeholder='Please enter email'
               error={errors.email?.message}
+              required
               {...field}
             />
           )}
@@ -164,17 +240,38 @@ const ConnectWithMe = () => {
           render={({ field }) => (
             <CustomTextArea
               label='Message'
-              placeholder='Enter batch description'
+              placeholder='Tell me a little about your project or what you need help with'
               className='h-28'
               error={errors.message?.message}
+              required
               {...field}
             />
           )}
         />
 
-        <CustomButton className='bg-tertiary-default dark:bg-secondary-default rounded-full uppercase'>
-          Contact Me
+        {submitMessage.text && (
+          <p
+            className={`rounded-2xl border px-4 py-3 text-sm ${
+              submitMessage.type === 'success'
+                ? 'border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300'
+                : 'border-red-200 bg-red-50 text-red-700 dark:border-red-500/30 dark:bg-red-500/10 dark:text-red-300'
+            }`}
+          >
+            {submitMessage.text}
+          </p>
+        )}
+
+        <CustomButton
+          type='submit'
+          loading={isSubmitting}
+          className='bg-tertiary-default dark:bg-secondary-default rounded-full uppercase text-white dark:text-primary-default'
+        >
+          Send Message
         </CustomButton>
+
+        <p className='text-sm leading-6 text-slate-500 dark:text-white/60'>
+          Messages go directly to <span className='font-medium'>oduchep@gmail.com</span>.
+        </p>
       </form>
     </Wrapper>
   );
