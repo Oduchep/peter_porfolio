@@ -1,4 +1,5 @@
 import { CustomButton, SectionHero } from '@/components/elements';
+import { getYearsOfExperience } from '@/utils/DateFormatters';
 import { externalRoutes } from '@/utils/PortfolioRoutes';
 
 const AboutHero = () => {
@@ -32,7 +33,10 @@ const AboutHero = () => {
       }
       stats={[
         { value: '2019', label: 'Career start' },
-        { value: '3+', label: 'Years shipping with React and Next.js' },
+        {
+          value: getYearsOfExperience(),
+          label: 'Years shipping with React and Next.js',
+        },
         { value: '1', label: 'Product mindset across every build' },
       ]}
       primaryAction={

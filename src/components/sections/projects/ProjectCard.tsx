@@ -1,9 +1,20 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { GetSkillsBadge } from '@/components/widgets';
 import { FiExternalLink } from 'react-icons/fi';
 import { FaGithub } from 'react-icons/fa';
 import { ProjectType } from '@/utils/data';
+
+export const ProjectWrapper = ({ children }: { children: ReactNode }) => {
+  return (
+    <div className='relative'>
+      <div className='absolute -inset-3 -z-10 rounded-[2.3rem] bg-[linear-gradient(135deg,rgba(41,64,104,0.12),rgba(15,23,42,0.02))] blur-xl dark:bg-[linear-gradient(135deg,rgba(211,233,122,0.14),rgba(255,255,255,0.02))]' />
+      <div className='h-full rounded-3xl border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)] p-5 shadow-[0_22px_70px_rgba(15,23,42,0.08)] md:p-8 dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)]'>
+        {children}
+      </div>
+    </div>
+  );
+};
 
 const ProjectCard = ({
   project_name,

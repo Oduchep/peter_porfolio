@@ -113,7 +113,7 @@ const ConnectWithMe = () => {
               Say hello at&nbsp;
               <a
                 href='mailto:oduchep@gmail.com'
-                className='hover:border-secondary-default hover:text-secondary-default border-b'
+                className='dark:hover:border-secondary-default dark:hover:text-secondary-default hover:border-primary-default border-b hover:text-blue-500'
               >
                 oduchep@gmail.com
               </a>
@@ -122,7 +122,7 @@ const ConnectWithMe = () => {
               Or call me on&nbsp;
               <a
                 href='tel:07066788234'
-                className='hover:border-secondary-default hover:text-secondary-default border-b'
+                className='dark:hover:border-secondary-default dark:hover:text-secondary-default hover:border-primary-default border-b hover:text-blue-500'
               >
                 07066788234
               </a>
@@ -131,7 +131,7 @@ const ConnectWithMe = () => {
               For more info, here&apos;s&nbsp;
               <a
                 href={externalRoutes?.RESUME}
-                className='hover:border-secondary-default hover:text-secondary-default border-b'
+                className='dark:hover:border-secondary-default dark:hover:text-secondary-default hover:border-primary-default border-b hover:text-blue-500'
                 target='_blank'
                 rel='noopener noreferrer'
               >

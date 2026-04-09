@@ -29,7 +29,7 @@ const Display = ({
 }) => {
   return (
     <div
-      className='all__trans flex w-fit items-center gap-2 rounded-full border border-slate-200/80 px-3.5 py-1.5 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)] dark:border-white/10'
+      className='all__trans flex w-fit items-center gap-2 rounded-xl border border-slate-200/80 px-3.5 py-1.5 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur hover:-translate-y-1 hover:shadow-[0_18px_36px_rgba(15,23,42,0.08)] dark:border-white/10'
       style={{ background: background, color: color }}
     >
       {icon ? (

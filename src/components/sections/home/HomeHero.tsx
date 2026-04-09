@@ -8,6 +8,7 @@ import { externalRoutes, portfolioRoutes } from '@/utils/PortfolioRoutes';
 import { Projects } from '@/utils/data';
 import { PeterBlueShirt } from '../../../../public/assets/images';
 import { Wrapper } from '../layout';
+import { getYearsOfExperience } from '@/utils/DateFormatters';
 
 const HomeHero = () => {
   const skillset = [
@@ -23,7 +24,7 @@ const HomeHero = () => {
   ];
 
   const heroStats = [
-    { value: '4+', label: 'Years building interfaces' },
+    { value: getYearsOfExperience(), label: 'Years building interfaces' },
     { value: `${Projects.length}+`, label: 'Projects shipped so far' },
     { value: '100%', label: 'Responsive-first mindset' },
   ];
