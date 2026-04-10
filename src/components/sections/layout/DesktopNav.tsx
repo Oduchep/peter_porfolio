@@ -19,16 +19,16 @@ const DesktopNav = () => {
   const pathname = usePathname();
 
   const social_links = [
-    { icon: <FaGithub />, href: externalRoutes.GITHUB },
-    { icon: <FaLinkedin />, href: externalRoutes.LINKEDIN },
-    { icon: <FaXTwitter />, href: externalRoutes.TWITTER },
+    { icon: <FaGithub />, href: externalRoutes.GITHUB, label: 'GitHub' },
+    { icon: <FaLinkedin />, href: externalRoutes.LINKEDIN, label: 'LinkedIn' },
+    { icon: <FaXTwitter />, href: externalRoutes.TWITTER, label: 'Twitter/X' },
   ];
 
   return (
     <nav className='transition-all duration-500 ease-in-out'>
       <div className='flex items-center justify-between px-10 py-8'>
-        <Link href={portfolioRoutes.HOME}>
-          <Image src={NameLogo} alt='logo' priority />
+        <Link href={portfolioRoutes.HOME} aria-label='Go to homepage'>
+          <Image src={NameLogo} alt='Peter Okerulu logo' priority />
         </Link>
 
         <div className='flex items-center gap-10'>
@@ -53,6 +53,7 @@ const DesktopNav = () => {
               <a
                 key={index}
                 href={social.href}
+                aria-label={social.label}
                 className='text-xl'
                 target='_blank'
                 rel='noopener noreferrer'

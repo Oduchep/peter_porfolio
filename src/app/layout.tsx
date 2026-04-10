@@ -74,6 +74,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  icons: {
+    apple: '/assets/images/peter_blue_shirt.png',
+  },
 };
 
 const personSchema = {

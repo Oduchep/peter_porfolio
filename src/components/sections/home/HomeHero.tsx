@@ -56,10 +56,10 @@ const HomeHero = () => {
           </h1>
 
           <p className='max-w-3xl text-base leading-8 text-slate-600 md:text-lg dark:text-white/72'>
-            I&apos;m Peter, a frontend engineer focused on crafting interfaces
-            that combine product clarity with visual precision. From fintech to
-            SaaS and marketplaces, I turn ambitious ideas into responsive
-            experiences people actually enjoy using.
+            I&apos;m Peter, a frontend engineer who builds polished digital
+            products with product clarity and visual precision. From fintech to
+            SaaS and marketplaces, I turn ambitious ideas into fast, intentional
+            experiences that feel memorable and genuinely enjoyable to use.
           </p>
         </div>
 

@@ -1,11 +1,10 @@
-import React from 'react';
 import DesktopNav from './DesktopNav';
 import MobileNav from './MobileNav';
 
 const Navigations = () => {
   return (
-    <div className='dark:bg-primary-default sticky top-0 z-[999] bg-white'>
-      <div className='hidden lg:block'>
+    <div className='dark:bg-primary-default sticky top-0 z-999 bg-white'>
+      <div className='hidden lg:block' aria-hidden='true'>
         <DesktopNav />
       </div>
 

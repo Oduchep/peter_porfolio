@@ -1,18 +1,20 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { startTransition, useEffect, useState } from 'react';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window === 'undefined') {
-      return false;
-    }
+  const [darkMode, setDarkMode] = useState(false);
 
-    return localStorage.getItem('theme') === 'dark';
-  });
+  // Initialise from localStorage after hydration, then keep in sync
+  useEffect(() => {
+    const stored = localStorage.getItem('theme');
+    const isDark = stored !== null ? stored === 'dark' : true;
+    startTransition(() => {
+      setDarkMode(isDark);
+    });
+  }, []);
 
-  // Update localStorage and HTML class on theme change
   useEffect(() => {
     if (darkMode) {
       localStorage.setItem('theme', 'dark');
@@ -24,7 +26,11 @@ const DarkModeToggle = () => {
   }, [darkMode]);
 
   return (
-    <button onClick={() => setDarkMode((prev) => !prev)} className='text-xl'>
+    <button
+      onClick={() => setDarkMode((prev) => !prev)}
+      className='text-xl'
+      suppressHydrationWarning
+    >
       {darkMode ? (
         <BsFillSunFill className='cursor-pointer text-amber-500' />
       ) : (

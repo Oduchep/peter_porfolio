@@ -52,16 +52,20 @@ const ProjectCard = ({
             {github_link && (
               <a
                 href={github_link}
+                aria-label={`View ${project_name} source code on GitHub`}
                 className='all__trans hover:scale-125'
                 target='_blank'
+                rel='noopener noreferrer'
               >
                 <FaGithub />
               </a>
             )}
             <a
               href={project_link}
+              aria-label={`View ${project_name} live site`}
               className='all__trans hover:scale-125'
               target='_blank'
+              rel='noopener noreferrer'
             >
               <FiExternalLink />
             </a>
