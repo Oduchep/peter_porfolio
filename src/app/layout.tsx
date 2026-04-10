@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Peter Okerulu',
   },
   description:
-    'Peter Okerulu is a frontend engineer based in Port Harcourt, Nigeria, specialising in React, Next.js, and TypeScript — building polished, responsive digital products for fintech, SaaS, and marketplaces.',
+    'Peter Okerulu — frontend engineer from Port Harcourt, Nigeria, building polished products for fintech and SaaS with React, Next.js, and TypeScript.',
   keywords: [
     'Peter Okerulu',
     'frontend engineer',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "Peter Okerulu's Portfolio",
     title: 'Peter Okerulu | Frontend Engineer',
     description:
-      'Peter Okerulu is a frontend engineer based in Port Harcourt, Nigeria, specialising in React, Next.js, and TypeScript — building polished, responsive digital products for fintech, SaaS, and marketplaces.',
+      'Peter Okerulu — frontend engineer from Port Harcourt, Nigeria, building polished products for fintech and SaaS with React, Next.js, and TypeScript.',
     images: [
       {
         url: '/assets/images/peter_blue_shirt.png',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Peter Okerulu | Frontend Engineer',
     description:
-      'Peter Okerulu is a frontend engineer based in Port Harcourt, Nigeria, specialising in React, Next.js, and TypeScript — building polished, responsive digital products for fintech, SaaS, and marketplaces.',
+      'Peter Okerulu — frontend engineer from Port Harcourt, Nigeria, building polished products for fintech and SaaS with React, Next.js, and TypeScript.',
     images: ['/assets/images/peter_blue_shirt.png'],
   },
   robots: {

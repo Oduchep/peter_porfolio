@@ -7,19 +7,17 @@ import {
 
 export const metadata: Metadata = {
   title: {
-    absolute:
-      'Peter Okerulu — Frontend Engineer | React, Next.js & TypeScript Developer',
+    absolute: 'Peter Okerulu | React & Next.js Frontend Engineer',
   },
   description:
-    'Peter Okerulu builds polished digital products that feel intentional, fast, and memorable — crafting responsive interfaces for fintech, SaaS, and marketplaces with React, Next.js, and TypeScript.',
+    'Peter Okerulu builds polished digital products — fast, intentional interfaces for fintech, SaaS, and marketplaces with React and Next.js.',
   alternates: {
     canonical: 'https://www.oduchep.com',
   },
   openGraph: {
-    title:
-      'Peter Okerulu — Frontend Engineer | React, Next.js & TypeScript Developer',
+    title: 'Peter Okerulu | React & Next.js Frontend Engineer',
     description:
-      'Peter Okerulu builds polished digital products that feel intentional, fast, and memorable — crafting responsive interfaces for fintech, SaaS, and marketplaces with React, Next.js, and TypeScript.',
+      'Peter Okerulu builds polished digital products — fast, intentional interfaces for fintech, SaaS, and marketplaces with React and Next.js.',
     url: 'https://www.oduchep.com',
   },
 };
