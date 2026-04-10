@@ -23,12 +23,9 @@ import {
 
 const ConnectWithMe = () => {
   const social_links = [
-    { icon: <FaGithub />, href: externalRoutes.GITHUB },
-    {
-      icon: <FaLinkedin />,
-      href: externalRoutes.LINKEDIN,
-    },
-    { icon: <FaXTwitter />, href: externalRoutes.TWITTER },
+    { icon: <FaGithub />, href: externalRoutes.GITHUB, label: 'GitHub' },
+    { icon: <FaLinkedin />, href: externalRoutes.LINKEDIN, label: 'LinkedIn' },
+    { icon: <FaXTwitter />, href: externalRoutes.TWITTER, label: 'Twitter/X' },
   ];
 
   const [submitMessage, setSubmitMessage] = useState<{
@@ -145,8 +142,10 @@ const ConnectWithMe = () => {
               <a
                 key={index}
                 href={socials.href}
+                aria-label={socials.label}
                 className='all__trans text-tertiary-default dark:text-secondary-default text-xl hover:scale-125'
                 target='_blank'
+                rel='noopener noreferrer'
               >
                 {socials?.icon}
               </a>

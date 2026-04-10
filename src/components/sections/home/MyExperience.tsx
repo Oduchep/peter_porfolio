@@ -3,15 +3,20 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { SectionIntro } from '@/components/elements';
 import { Experiences } from '@/utils/data';
-import { useState } from 'react';
+import { startTransition, useEffect, useState } from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 import { Wrapper } from '../layout';
 
 const MyExperience = () => {
-  const [activeId, setActiveId] = useState<string>(Experiences[0]?.id);
+  const [activeId, setActiveId] = useState<string | null>(null);
+  useEffect(() => {
+    startTransition(() => {
+      setActiveId(Experiences[0]?.id ?? null);
+    });
+  }, []);
   const activeExperience =
-    Experiences.find((exp) => exp.id === activeId) ?? Experiences[0];
+    Experiences.find((exp) => exp.id === activeId) ?? null;
 
   return (
     <Wrapper className='space-y-12'>
@@ -61,7 +66,7 @@ const MyExperience = () => {
                 </div>
 
                 <div>
-                  <h3
+                  <p
                     className={`text-xl font-semibold ${
                       exp.id === activeId
                         ? 'dark:text-primary-default text-white'
@@ -69,7 +74,7 @@ const MyExperience = () => {
                     }`}
                   >
                     {exp.company}
-                  </h3>
+                  </p>
                   <p
                     className={`text-sm ${
                       exp.id === activeId
@@ -95,48 +100,50 @@ const MyExperience = () => {
 
         <div className='sticky top-28 self-start'>
           <AnimatePresence mode='wait'>
-            <motion.div
-              key={activeExperience.id}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.28, ease: 'easeOut' }}
-              className='min-h-152 rounded-3xl border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)] p-8 shadow-[0_26px_80px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.03)_100%)]'
-            >
-              <div className='flex flex-col gap-5'>
-                <div className='max-w-xl'>
-                  <h2 className='text-3xl font-semibold text-slate-950 dark:text-white'>
-                    {activeExperience.position}
-                  </h2>
-                  <p className='text-tertiary-default dark:text-secondary-default mt-2 text-lg'>
-                    {activeExperience.company}
-                  </p>
+            {activeExperience && (
+              <motion.div
+                key={activeExperience.id}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.28, ease: 'easeOut' }}
+                className='min-h-152 rounded-3xl border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)] p-8 shadow-[0_26px_80px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.05)_0%,rgba(255,255,255,0.03)_100%)]'
+              >
+                <div className='flex flex-col gap-5'>
+                  <div className='max-w-xl'>
+                    <h2 className='text-3xl font-semibold text-slate-950 dark:text-white'>
+                      {activeExperience.position}
+                    </h2>
+                    <p className='text-tertiary-default dark:text-secondary-default mt-2 text-lg'>
+                      {activeExperience.company}
+                    </p>
+                  </div>
+
+                  <div className='flex flex-wrap gap-2'>
+                    <span className='rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700 dark:bg-white/6 dark:text-white/70'>
+                      {activeExperience.duration}
+                    </span>
+                    <span className='rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700 dark:bg-white/6 dark:text-white/70'>
+                      {activeExperience.location}
+                    </span>
+                  </div>
                 </div>
 
-                <div className='flex flex-wrap gap-2'>
-                  <span className='rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700 dark:bg-white/6 dark:text-white/70'>
-                    {activeExperience.duration}
-                  </span>
-                  <span className='rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700 dark:bg-white/6 dark:text-white/70'>
-                    {activeExperience.location}
-                  </span>
+                <div className='mt-8 rounded-3xl border border-slate-200/70 bg-white/75 p-6 dark:border-white/10 dark:bg-white/3'>
+                  <ul className='space-y-4'>
+                    {activeExperience.description.map((desc, index) => (
+                      <li
+                        key={index}
+                        className='flex items-start gap-4 text-base leading-8 text-slate-600 dark:text-white/72'
+                      >
+                        <span className='bg-tertiary-default dark:bg-secondary-default mt-3 h-2.5 w-2.5 shrink-0 rounded-full' />
+                        <span>{desc}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
-
-              <div className='mt-8 rounded-3xl border border-slate-200/70 bg-white/75 p-6 dark:border-white/10 dark:bg-white/3'>
-                <ul className='space-y-4'>
-                  {activeExperience.description.map((desc, index) => (
-                    <li
-                      key={index}
-                      className='flex items-start gap-4 text-base leading-8 text-slate-600 dark:text-white/72'
-                    >
-                      <span className='bg-tertiary-default dark:bg-secondary-default mt-3 h-2.5 w-2.5 shrink-0 rounded-full' />
-                      <span>{desc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+              </motion.div>
+            )}
           </AnimatePresence>
         </div>
       </section>
