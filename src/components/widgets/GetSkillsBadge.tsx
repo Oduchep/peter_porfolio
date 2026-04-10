@@ -35,7 +35,13 @@ const Display = ({
       {icon ? (
         <div className='text-base'>{icon}</div>
       ) : src ? (
-        <Image src={src} width={14} height={14} alt='icon' />
+        <Image
+          src={src}
+          width={14}
+          height={14}
+          alt='icon'
+          style={{ width: '14px', height: '14px' }}
+        />
       ) : null}
       <span className='text-sm font-medium capitalize'>{label}</span>
     </div>
