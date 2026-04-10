@@ -38,9 +38,11 @@ const HomeHero = () => {
       <div className='absolute top-0 right-0 -z-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(15,23,42,0.08),transparent_70%)] blur-3xl dark:bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_70%)]' />
 
       <div className='space-y-8'>
-        <div className='inline-flex items-center gap-3 rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-sm font-medium text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-white/70'>
-          <span className='h-2.5 w-2.5 rounded-full bg-emerald-500' />
-          Open to thoughtful product work
+        <div className='inline-flex flex-wrap items-center gap-x-3 gap-y-1 rounded-full border border-slate-200/80 bg-white/80 px-4 py-2 text-sm font-medium text-slate-600 shadow-[0_12px_30px_rgba(15,23,42,0.05)] backdrop-blur dark:border-white/10 dark:bg-white/5 dark:text-white/70'>
+          <p className='inline-flex items-center gap-3'>
+            <span className='h-2.5 w-2.5 rounded-full bg-emerald-500' />
+            Open to thoughtful product work
+          </p>
           <span className='inline-flex items-center gap-1 text-slate-500 dark:text-white/50'>
             <FiMapPin className='text-sm' />
             Port Harcourt, Nigeria
