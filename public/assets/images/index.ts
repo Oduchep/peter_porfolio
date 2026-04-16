@@ -6,7 +6,7 @@ export { default as AkilaahScreen } from './akilaah_screen.png';
 export { default as BlessingPortfolioScreen } from './blessing_portfolio_screen.png';
 export { default as CoastNgScreen } from './coastNg_screen.png';
 export { default as MajScreen } from './maj_screen.png';
-export { default as PeterBlueShirt } from './peter_blue_shirt.png';
+export { default as PeterHeadshot } from './peter_headshot.png';
 export { default as PeterGreyShirt } from './peter_grey_shirt.png';
 export { default as PexelsCloneScreen } from './pexels_clone_screen.png';
 export { default as StakecutScreen } from './stakecut_screen.png';
