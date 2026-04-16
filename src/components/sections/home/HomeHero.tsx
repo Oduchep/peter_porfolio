@@ -6,7 +6,7 @@ import { FiArrowRight, FiDownload, FiMapPin } from 'react-icons/fi';
 
 import { externalRoutes, portfolioRoutes } from '@/utils/PortfolioRoutes';
 import { Projects } from '@/utils/data';
-import { PeterBlueShirt } from '../../../../public/assets/images';
+import { PeterHeadshot } from '../../../../public/assets/images';
 import { Wrapper } from '../layout';
 import { getYearsOfExperience } from '@/utils/DateFormatters';
 
@@ -127,7 +127,7 @@ const HomeHero = () => {
 
           <div className='relative overflow-hidden rounded-4xl bg-[linear-gradient(180deg,#eef4ff_0%,#dfe7f5_100%)] dark:bg-[linear-gradient(180deg,#162033_0%,#0e1522_100%)]'>
             <Image
-              src={PeterBlueShirt}
+              src={PeterHeadshot}
               height={640}
               width={640}
               alt='Peter Okerulu portrait'
