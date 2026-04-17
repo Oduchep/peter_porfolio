@@ -238,7 +238,7 @@ const HomeHero = () => {
           </div>
 
           <motion.div
-            className='relative overflow-hidden rounded-4xl bg-[linear-gradient(180deg,#eef4ff_0%,#dfe7f5_100%)] dark:bg-[linear-gradient(180deg,#162033_0%,#0e1522_100%)]'
+            className='relative max-h-96 overflow-hidden rounded-4xl bg-[linear-gradient(180deg,#eef4ff_0%,#dfe7f5_100%)] md:max-h-128 dark:bg-[linear-gradient(180deg,#162033_0%,#0e1522_100%)]'
             whileHover={{ scale: 1.025 }}
             transition={{ duration: 0.4, ease: EASE }}
           >
@@ -247,7 +247,7 @@ const HomeHero = () => {
               height={640}
               width={640}
               alt='Peter Okerulu portrait'
-              className='mx-auto h-auto w-full object-cover'
+              className='mx-auto h-full w-full object-cover object-center'
               priority
             />
           </motion.div>
