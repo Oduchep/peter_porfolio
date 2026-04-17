@@ -18,7 +18,7 @@ const containerVariants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.09,
+      staggerChildren: 0.12,
       delayChildren: 0.1,
     },
   },
@@ -36,7 +36,7 @@ const itemVariants = {
 const badgeContainerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.055, delayChildren: 0 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 },
   },
 };
 
