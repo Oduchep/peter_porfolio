@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import {
   CustomButton,
   Heading2,
@@ -20,6 +22,8 @@ import {
   contactServices,
   type ContactFormValues,
 } from '@/schema/contactFormSchema';
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 const ConnectWithMe = () => {
   const social_links = [
@@ -92,9 +96,25 @@ const ConnectWithMe = () => {
     }
   };
 
+  const { ref: leftRef, inView: leftInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: formRef, inView: formInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.06,
+  });
+
   return (
     <Wrapper className='grid gap-x-32 gap-y-16 lg:grid-cols-2'>
-      <div className='relative flex flex-col gap-5'>
+      <motion.div
+        ref={leftRef}
+        initial={{ opacity: 0, x: -32 }}
+        animate={leftInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.65, ease: EASE }}
+        className='relative flex flex-col gap-5'
+      >
         <Heading2 text="Let's Connect 🤝" />
 
         <div className='relative z-10 flex flex-col gap-5'>
@@ -139,16 +159,20 @@ const ConnectWithMe = () => {
 
           <div className='relative z-10 flex items-center gap-5'>
             {social_links?.map((socials, index) => (
-              <a
+              <motion.a
                 key={index}
                 href={socials.href}
                 aria-label={socials.label}
-                className='all__trans text-tertiary-default dark:text-secondary-default text-xl hover:scale-125'
+                className='text-tertiary-default dark:text-secondary-default text-xl'
                 target='_blank'
                 rel='noopener noreferrer'
+                initial={{ opacity: 0, y: 12 }}
+                animate={leftInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.08, ease: EASE }}
+                whileHover={{ scale: 1.25, y: -3 }}
               >
                 {socials?.icon}
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
@@ -158,10 +182,14 @@ const ConnectWithMe = () => {
           className='absolute -bottom-20 opacity-70'
           alt='smoke image'
         />
-      </div>
+      </motion.div>
 
-      <form
+      <motion.form
+        ref={formRef}
         onSubmit={handleSubmit(onSubmit)}
+        initial={{ opacity: 0, x: 32 }}
+        animate={formInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.65, ease: EASE }}
         className='flex flex-col gap-8 rounded-4xl border border-slate-200 bg-white p-6 shadow-[0_20px_70px_rgba(15,23,42,0.08)] md:p-8 dark:border-white/10 dark:bg-white/4'
       >
         <div>
@@ -178,10 +206,12 @@ const ConnectWithMe = () => {
                   const isActive = field.value === service;
 
                   return (
-                    <button
+                    <motion.button
                       key={service}
                       type='button'
                       onClick={() => field.onChange(service)}
+                      whileHover={{ scale: 1.04 }}
+                      whileTap={{ scale: 0.97 }}
                       className={`all__trans rounded-full border px-5 py-1.5 text-sm font-medium ${
                         isActive
                           ? 'border-tertiary-default bg-tertiary-default dark:border-secondary-default dark:bg-secondary-default dark:text-primary-default text-white'
@@ -189,7 +219,7 @@ const ConnectWithMe = () => {
                       }`}
                     >
                       {service}
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
@@ -249,7 +279,10 @@ const ConnectWithMe = () => {
         />
 
         {submitMessage.text && (
-          <p
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35, ease: EASE }}
             className={`rounded-2xl border px-4 py-3 text-sm ${
               submitMessage.type === 'success'
                 ? 'border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300'
@@ -257,7 +290,7 @@ const ConnectWithMe = () => {
             }`}
           >
             {submitMessage.text}
-          </p>
+          </motion.p>
         )}
 
         <CustomButton
@@ -272,7 +305,7 @@ const ConnectWithMe = () => {
           Messages go directly to&nbsp;
           <span className='font-medium'>oduchep@gmail.com</span>.
         </p>
-      </form>
+      </motion.form>
     </Wrapper>
   );
 };

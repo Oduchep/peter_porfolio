@@ -8,6 +8,8 @@ import { FiArrowUpRight } from 'react-icons/fi';
 
 import { Wrapper } from '../layout';
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 const MyExperience = () => {
   const [activeId, setActiveId] = useState<string | null>(null);
   useEffect(() => {
@@ -33,14 +35,24 @@ const MyExperience = () => {
         }
       />
 
+      {/* Desktop layout */}
       <section className='hidden grid-cols-1 gap-x-10 gap-y-8 lg:grid lg:grid-cols-[minmax(320px,0.85fr)_minmax(0,1.15fr)] xl:gap-x-14'>
         <div className='space-y-4'>
           {Experiences.map((exp, index) => (
-            <button
+            <motion.button
               key={exp.id}
               type='button'
               onClick={() => setActiveId(exp.id)}
               onMouseEnter={() => setActiveId(exp.id)}
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: EASE }}
+              whileHover={
+                exp.id !== activeId
+                  ? { x: 4, transition: { duration: 0.18 } }
+                  : {}
+              }
               className={`all__trans group flex w-full items-start justify-between gap-4 rounded-3xl border p-5 text-left shadow-[0_16px_40px_rgba(15,23,42,0.04)] ${
                 exp.id === activeId
                   ? 'border-tertiary-default dark:border-secondary-default dark:text-primary-default bg-[linear-gradient(135deg,#294068_0%,#172135_100%)] text-white shadow-[0_24px_60px_rgba(23,33,53,0.22)] dark:bg-[linear-gradient(135deg,#D3E97A_0%,#B7D24E_100%)]'
@@ -94,7 +106,7 @@ const MyExperience = () => {
                     : 'text-slate-400 group-hover:text-slate-700 dark:text-white/40 dark:group-hover:text-white/80'
                 }`}
               />
-            </button>
+            </motion.button>
           ))}
         </div>
 
@@ -132,13 +144,16 @@ const MyExperience = () => {
                 <div className='mt-8 rounded-3xl border border-slate-200/70 bg-white/75 p-6 dark:border-white/10 dark:bg-white/3'>
                   <ul className='space-y-4'>
                     {activeExperience.description.map((desc, index) => (
-                      <li
+                      <motion.li
                         key={index}
+                        initial={{ opacity: 0, x: -12 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.35, delay: index * 0.07, ease: EASE }}
                         className='flex items-start gap-4 text-base leading-8 text-slate-600 dark:text-white/72'
                       >
                         <span className='bg-tertiary-default dark:bg-secondary-default mt-3 h-2.5 w-2.5 shrink-0 rounded-full' />
                         <span>{desc}</span>
-                      </li>
+                      </motion.li>
                     ))}
                   </ul>
                 </div>
@@ -148,10 +163,15 @@ const MyExperience = () => {
         </div>
       </section>
 
+      {/* Mobile layout — staggered cards */}
       <section className='block space-y-6 lg:hidden'>
         {Experiences.map((exp, index) => (
-          <div
+          <motion.div
             key={exp.id}
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55, delay: index * 0.1, ease: EASE }}
             className='rounded-3xl border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(248,250,252,0.98)_100%)] p-5 shadow-[0_18px_50px_rgba(15,23,42,0.06)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0.03)_100%)]'
           >
             <div className='flex flex-col gap-4'>
@@ -184,7 +204,7 @@ const MyExperience = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
       </section>
     </Wrapper>
