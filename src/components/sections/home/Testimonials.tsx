@@ -9,24 +9,24 @@ import { Testimonials as testimonialData } from '@/utils/data';
 
 import { Wrapper } from '../layout';
 
-const CARDS_PER_PAGE = 3;
+const CARDS_PER_VIEW = 3;
 const AUTOPLAY_INTERVAL = 6000;
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const slideVariants = {
-  enter: (direction: number) => ({
+const cardVariants = {
+  enter: (dir: number) => ({
     opacity: 0,
-    x: direction > 0 ? 48 : -48,
+    x: dir > 0 ? 80 : -80,
   }),
   center: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.45, ease: EASE },
+    transition: { duration: 0.38, ease: EASE },
   },
-  exit: (direction: number) => ({
+  exit: (dir: number) => ({
     opacity: 0,
-    x: direction > 0 ? -48 : 48,
-    transition: { duration: 0.3, ease: EASE },
+    x: dir > 0 ? -80 : 80,
+    transition: { duration: 0.28, ease: EASE },
   }),
 };
 
@@ -39,40 +39,33 @@ const getInitials = (name: string) =>
     .toUpperCase();
 
 const Testimonials = () => {
-  const totalPages = Math.ceil(testimonialData.length / CARDS_PER_PAGE);
-  const [page, setPage] = useState(0);
+  const n = testimonialData.length;
+  const canSlide = n > CARDS_PER_VIEW;
+
+  const [startIndex, setStartIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
 
   const paginate = useCallback(
     (step: number) => {
       setDirection(step);
-      setPage((current) => {
-        const next = current + step;
-        if (next < 0) return totalPages - 1;
-        if (next >= totalPages) return 0;
-        return next;
-      });
+      setStartIndex((current) => (current + step + n) % n);
     },
-    [totalPages]
+    [n]
   );
 
   useEffect(() => {
-    if (totalPages <= 1 || isPaused) return;
+    if (!canSlide || isPaused) return;
     const timer = setInterval(() => paginate(1), AUTOPLAY_INTERVAL);
     return () => clearInterval(timer);
-  }, [paginate, totalPages, isPaused]);
+  }, [canSlide, isPaused, paginate]);
 
-  const goToPage = (index: number) => {
-    if (index === page) return;
-    setDirection(index > page ? 1 : -1);
-    setPage(index);
-  };
-
-  const visibleTestimonials = testimonialData.slice(
-    page * CARDS_PER_PAGE,
-    page * CARDS_PER_PAGE + CARDS_PER_PAGE
-  );
+  const visibleCards = canSlide
+    ? Array.from({ length: CARDS_PER_VIEW }, (_, i) => ({
+        ...testimonialData[(startIndex + i) % n],
+        dataIndex: (startIndex + i) % n,
+      }))
+    : testimonialData.map((t, i) => ({ ...t, dataIndex: i }));
 
   return (
     <Wrapper className='space-y-10'>
@@ -97,16 +90,16 @@ const Testimonials = () => {
               <p className='text-sm font-semibold text-slate-950 dark:text-white'>
                 LinkedIn Recommendations
               </p>
-              {totalPages > 1 && (
+              {canSlide && (
                 <p className='text-sm text-slate-500 dark:text-white/58'>
-                  {String(page + 1).padStart(2, '0')} /{' '}
-                  {String(totalPages).padStart(2, '0')}
+                  {String(startIndex + 1).padStart(2, '0')} /{' '}
+                  {String(n).padStart(2, '0')}
                 </p>
               )}
             </div>
           </div>
 
-          {totalPages > 1 && (
+          {canSlide && (
             <div className='flex items-center gap-2'>
               <button
                 type='button'
@@ -114,7 +107,7 @@ const Testimonials = () => {
                   setIsPaused(true);
                   paginate(-1);
                 }}
-                aria-label='Show previous testimonials'
+                aria-label='Show previous testimonial'
                 className='all__trans flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 hover:border-slate-300 dark:border-white/10 dark:bg-white/6 dark:text-white/70'
               >
                 <FiArrowLeft />
@@ -125,7 +118,7 @@ const Testimonials = () => {
                   setIsPaused(true);
                   paginate(1);
                 }}
-                aria-label='Show next testimonials'
+                aria-label='Show next testimonial'
                 className='all__trans bg-tertiary-default dark:bg-secondary-default dark:text-primary-default flex h-11 w-11 items-center justify-center rounded-full text-white'
               >
                 <FiArrowRight />
@@ -134,20 +127,18 @@ const Testimonials = () => {
           )}
         </div>
 
-        <div className='relative overflow-hidden py-6'>
-          <AnimatePresence custom={direction} mode='wait'>
-            <motion.div
-              key={page}
-              custom={direction}
-              variants={slideVariants}
-              initial='enter'
-              animate='center'
-              exit='exit'
-              className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'
-            >
-              {visibleTestimonials.map((testimonial, i) => (
-                <article
-                  key={`${testimonial.name}-${page}-${i}`}
+        <div className='overflow-hidden py-6'>
+          <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+            <AnimatePresence mode='popLayout' custom={direction}>
+              {visibleCards.map(({ dataIndex, ...testimonial }) => (
+                <motion.article
+                  key={dataIndex}
+                  layout
+                  custom={direction}
+                  variants={cardVariants}
+                  initial='enter'
+                  animate='center'
+                  exit='exit'
                   className='flex flex-col justify-between rounded-2xl border border-slate-200/80 bg-white p-5 dark:border-white/10 dark:bg-white/4'
                 >
                   <div className='flex-1'>
@@ -175,26 +166,27 @@ const Testimonials = () => {
                       </p>
                     </div>
                   </div>
-                </article>
+                </motion.article>
               ))}
-            </motion.div>
-          </AnimatePresence>
+            </AnimatePresence>
+          </div>
         </div>
 
-        {totalPages > 1 && (
+        {canSlide && (
           <div className='flex items-center justify-center gap-3 pt-2'>
-            {Array.from({ length: totalPages }, (_, i) => (
+            {testimonialData.map((_, i) => (
               <button
                 key={i}
                 type='button'
                 onClick={() => {
                   setIsPaused(true);
-                  goToPage(i);
+                  setDirection(i > startIndex ? 1 : -1);
+                  setStartIndex(i);
                 }}
-                aria-label={`Go to page ${i + 1}`}
-                aria-pressed={i === page}
+                aria-label={`Go to testimonial ${i + 1}`}
+                aria-pressed={i === startIndex}
                 className={`all__trans h-2.5 rounded-full ${
-                  i === page
+                  i === startIndex
                     ? 'bg-tertiary-default dark:bg-secondary-default w-10'
                     : 'w-2.5 bg-slate-300 hover:bg-slate-400 dark:bg-white/20 dark:hover:bg-white/35'
                 }`}
