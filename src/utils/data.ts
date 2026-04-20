@@ -22,10 +22,9 @@ export interface ProjectType {
 export interface TestimonialType {
   quote: string;
   name: string;
-  role: string;
-  company: string;
-  impact: string;
-  tags: string[];
+  title: string;
+  relationship: string;
+  date: string;
 }
 
 const projectsData: ProjectType[] = [
@@ -195,52 +194,20 @@ export const Experiences = [
 export const Testimonials: TestimonialType[] = [
   {
     quote:
-      'Peter has a sharp eye for interface quality and the ownership mindset to match it. He does not just ship screens, he helps the whole team make better product decisions.',
-    name: 'Ada N.',
-    role: 'Product Lead',
-    company: 'Fintech SaaS',
-    impact:
-      'Turned ambiguous product goals into polished, release-ready flows.',
-    tags: ['Product thinking', 'UI precision', 'Leadership'],
+      "Peter is one of the best developers I've had the pleasure of working with.\n\nWhat makes him so great is not just his coding skills, but also his acumen for business logic - by looking at scenarios from the perspective of users - and his exceptional professionalism.\n\nHe is the sort of engineer who would be an asset to any team.",
+    name: 'Maduabuchi Dibiaezue',
+    title:
+      'Product Manager | Product Owner | Agile & Scrum | User Research | Data Analysis | Stakeholder Management | AI | SaaS',
+    relationship: 'Managed Peter directly',
+    date: 'April 19, 2026',
   },
   {
     quote:
-      'The pace was impressive, but the real standout was the care. Every interaction felt considered, and the final experience looked far more mature than our original scope.',
-    name: 'Samuel T.',
-    role: 'Founder',
-    company: 'Marketplace Startup',
-    impact:
-      'Raised the quality bar while keeping momentum high across delivery.',
-    tags: ['Fast iteration', 'Visual craft', 'Reliability'],
-  },
-  {
-    quote:
-      'Working with Peter felt easy. Communication was clear, handoff quality was excellent, and he consistently found thoughtful frontend solutions before issues became blockers.',
-    name: 'Miriam O.',
-    role: 'Engineering Manager',
-    company: 'Growth Team',
-    impact:
-      'Improved team velocity with cleaner collaboration and smoother execution.',
-    tags: ['Communication', 'Proactive', 'Execution'],
-  },
-  {
-    quote:
-      'The pace was impressive, but the real standout was the care. Every interaction felt considered, and the final experience looked far more mature than our original scope.',
-    name: 'Samuel T.',
-    role: 'Founder',
-    company: 'Marketplace Startup',
-    impact:
-      'Raised the quality bar while keeping momentum high across delivery.',
-    tags: ['Fast iteration', 'Visual craft', 'Reliability'],
-  },
-  {
-    quote:
-      'The pace was impressive, but the real standout was the care. Every interaction felt considered, and the final experience looked far more mature than our original scope.',
-    name: 'Samuel T.',
-    role: 'Founder',
-    company: 'Marketplace Startup',
-    impact:
-      'Raised the quality bar while keeping momentum high across delivery.',
-    tags: ['Fast iteration', 'Visual craft', 'Reliability'],
+      "Working with Peter was a great experience.\n\nHe's the kind of frontend engineer who doesn't just write code; he takes responsibility for delivering real value. He's self-motivated, always ready to take on challenges, and consistently pushes himself to improve.\n\nPeter is also a supportive teammate who collaborates well and contributes positively to the team environment. You can count on him to step up when it matters.\n\nBeyond his technical abilities, what stands out is his drive for growth and self-improvement. He is proactive, adaptable, and a great team player, someone you can trust to contribute meaningfully to any project.\n\nAny team would be lucky to have him.",
+    name: 'Cedar Daniel',
+    title:
+      'Software Engineer | Developer Relations | Community Builder | Open Source Contributor',
+    relationship: 'Worked with Peter on the same team',
+    date: 'April 17, 2026',
   },
 ];
