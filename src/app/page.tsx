@@ -3,6 +3,7 @@ import {
   FeaturedProjects,
   HomeHero,
   MyExperience,
+  Testimonials,
 } from '@/components/sections/home';
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function Home() {
     <div>
       <HomeHero />
       <FeaturedProjects />
+      <Testimonials />
       <MyExperience />
     </div>
   );

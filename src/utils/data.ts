@@ -19,6 +19,15 @@ export interface ProjectType {
   project_type: 'public' | 'private';
 }
 
+export interface TestimonialType {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  impact: string;
+  tags: string[];
+}
+
 const projectsData: ProjectType[] = [
   {
     project_name: 'Akilaah',
@@ -180,5 +189,58 @@ export const Experiences = [
       'Developed responsive UI components for Cerebrum, an e-learning platform.',
       'Worked in Agile sprints to turn user stories into working features.',
     ],
+  },
+];
+
+export const Testimonials: TestimonialType[] = [
+  {
+    quote:
+      'Peter has a sharp eye for interface quality and the ownership mindset to match it. He does not just ship screens, he helps the whole team make better product decisions.',
+    name: 'Ada N.',
+    role: 'Product Lead',
+    company: 'Fintech SaaS',
+    impact:
+      'Turned ambiguous product goals into polished, release-ready flows.',
+    tags: ['Product thinking', 'UI precision', 'Leadership'],
+  },
+  {
+    quote:
+      'The pace was impressive, but the real standout was the care. Every interaction felt considered, and the final experience looked far more mature than our original scope.',
+    name: 'Samuel T.',
+    role: 'Founder',
+    company: 'Marketplace Startup',
+    impact:
+      'Raised the quality bar while keeping momentum high across delivery.',
+    tags: ['Fast iteration', 'Visual craft', 'Reliability'],
+  },
+  {
+    quote:
+      'Working with Peter felt easy. Communication was clear, handoff quality was excellent, and he consistently found thoughtful frontend solutions before issues became blockers.',
+    name: 'Miriam O.',
+    role: 'Engineering Manager',
+    company: 'Growth Team',
+    impact:
+      'Improved team velocity with cleaner collaboration and smoother execution.',
+    tags: ['Communication', 'Proactive', 'Execution'],
+  },
+  {
+    quote:
+      'The pace was impressive, but the real standout was the care. Every interaction felt considered, and the final experience looked far more mature than our original scope.',
+    name: 'Samuel T.',
+    role: 'Founder',
+    company: 'Marketplace Startup',
+    impact:
+      'Raised the quality bar while keeping momentum high across delivery.',
+    tags: ['Fast iteration', 'Visual craft', 'Reliability'],
+  },
+  {
+    quote:
+      'The pace was impressive, but the real standout was the care. Every interaction felt considered, and the final experience looked far more mature than our original scope.',
+    name: 'Samuel T.',
+    role: 'Founder',
+    company: 'Marketplace Startup',
+    impact:
+      'Raised the quality bar while keeping momentum high across delivery.',
+    tags: ['Fast iteration', 'Visual craft', 'Reliability'],
   },
 ];
