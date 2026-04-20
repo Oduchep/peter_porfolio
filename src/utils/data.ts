@@ -19,6 +19,14 @@ export interface ProjectType {
   project_type: 'public' | 'private';
 }
 
+export interface TestimonialType {
+  quote: string;
+  name: string;
+  title: string;
+  relationship: string;
+  date: string;
+}
+
 const projectsData: ProjectType[] = [
   {
     project_name: 'Akilaah',
@@ -180,5 +188,26 @@ export const Experiences = [
       'Developed responsive UI components for Cerebrum, an e-learning platform.',
       'Worked in Agile sprints to turn user stories into working features.',
     ],
+  },
+];
+
+export const Testimonials: TestimonialType[] = [
+  {
+    quote:
+      "Peter is one of the best developers I've had the pleasure of working with.\n\nWhat makes him so great is not just his coding skills, but also his acumen for business logic - by looking at scenarios from the perspective of users - and his exceptional professionalism.\n\nHe is the sort of engineer who would be an asset to any team.",
+    name: 'Maduabuchi Dibiaezue',
+    title:
+      'Product Manager | Product Owner | Agile & Scrum | User Research | Data Analysis | Stakeholder Management | AI | SaaS',
+    relationship: 'Managed Peter directly',
+    date: 'April 19, 2026',
+  },
+  {
+    quote:
+      "Working with Peter was a great experience.\n\nHe's the kind of frontend engineer who doesn't just write code; he takes responsibility for delivering real value. He's self-motivated, always ready to take on challenges, and consistently pushes himself to improve.\n\nPeter is also a supportive teammate who collaborates well and contributes positively to the team environment. You can count on him to step up when it matters.\n\nBeyond his technical abilities, what stands out is his drive for growth and self-improvement. He is proactive, adaptable, and a great team player, someone you can trust to contribute meaningfully to any project.\n\nAny team would be lucky to have him.",
+    name: 'Cedar Daniel',
+    title:
+      'Software Engineer | Developer Relations | Community Builder | Open Source Contributor',
+    relationship: 'Worked with Peter on the same team',
+    date: 'April 17, 2026',
   },
 ];
