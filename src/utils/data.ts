@@ -194,6 +194,15 @@ export const Experiences = [
 export const Testimonials: TestimonialType[] = [
   {
     quote:
+      "Working with Peter was a great experience.\n\nHe's the kind of frontend engineer who doesn't just write code; he takes responsibility for delivering real value. He's self-motivated, always ready to take on challenges, and consistently pushes himself to improve.\n\nPeter is also a supportive teammate who collaborates well and contributes positively to the team environment. You can count on him to step up when it matters.\n\nBeyond his technical abilities, what stands out is his drive for growth and self-improvement. He is proactive, adaptable, and a great team player, someone you can trust to contribute meaningfully to any project.\n\nAny team would be lucky to have him.",
+    name: 'Cedar Daniel',
+    title:
+      'Software Engineer | Developer Relations | Community Builder | Open Source Contributor',
+    relationship: 'Worked with Peter on the same team',
+    date: 'April 17, 2026',
+  },
+  {
+    quote:
       "Peter is one of the best developers I've had the pleasure of working with.\n\nWhat makes him so great is not just his coding skills, but also his acumen for business logic - by looking at scenarios from the perspective of users - and his exceptional professionalism.\n\nHe is the sort of engineer who would be an asset to any team.",
     name: 'Maduabuchi Dibiaezue',
     title:
@@ -203,11 +212,11 @@ export const Testimonials: TestimonialType[] = [
   },
   {
     quote:
-      "Working with Peter was a great experience.\n\nHe's the kind of frontend engineer who doesn't just write code; he takes responsibility for delivering real value. He's self-motivated, always ready to take on challenges, and consistently pushes himself to improve.\n\nPeter is also a supportive teammate who collaborates well and contributes positively to the team environment. You can count on him to step up when it matters.\n\nBeyond his technical abilities, what stands out is his drive for growth and self-improvement. He is proactive, adaptable, and a great team player, someone you can trust to contribute meaningfully to any project.\n\nAny team would be lucky to have him.",
-    name: 'Cedar Daniel',
+      "I had the pleasure of working with Peter, and he's a highly skilled front-end developer with a strong logical approach to problem-solving. He's calm, calculated, and consistently delivers well-thought-out solutions. Beyond his technical ability, Peter is a patient and effective leader who brings out the best in his team mates.",
+    name: 'Chioma Otu',
     title:
-      'Software Engineer | Developer Relations | Community Builder | Open Source Contributor',
-    relationship: 'Worked with Peter on the same team',
-    date: 'April 17, 2026',
+      'Frontend Developer (React, Next.js, React Native) | Product Manager / Technical PM | Building and managing Scalable User-Centered Products',
+    relationship: 'Chioma worked with Peter on the same team',
+    date: 'April 20, 2026',
   },
 ];
