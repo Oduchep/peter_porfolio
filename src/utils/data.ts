@@ -44,7 +44,7 @@ const projectsData: ProjectType[] = [
       'Tailwind',
     ],
     project_type: 'private',
-    project_link: 'www.akilaah.com',
+    project_link: 'https://www.akilaah.com',
   },
   {
     project_name: 'Blessing Portfolio',

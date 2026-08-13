@@ -97,17 +97,19 @@ const ProjectCard = ({
                 <FaGithub />
               </motion.a>
             )}
-            <motion.a
-              href={project_link}
-              aria-label={`View ${project_name} live site`}
-              className='all__trans'
-              target='_blank'
-              rel='noopener noreferrer'
-              whileHover={{ scale: 1.25, y: -3 }}
-              transition={{ duration: 0.2 }}
-            >
-              <FiExternalLink />
-            </motion.a>
+            {project_link && (
+              <motion.a
+                href={project_link}
+                aria-label={`View ${project_name} live site`}
+                className='all__trans'
+                target='_blank'
+                rel='noopener noreferrer'
+                whileHover={{ scale: 1.25, y: -3 }}
+                transition={{ duration: 0.2 }}
+              >
+                <FiExternalLink />
+              </motion.a>
+            )}
           </div>
         </div>
 
