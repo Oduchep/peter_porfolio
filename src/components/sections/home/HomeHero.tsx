@@ -47,9 +47,7 @@ const HomeHero = () => {
             className='rise text-muted text-lg leading-relaxed text-pretty md:col-span-6'
             style={delay(2)}
           >
-            I&apos;m Peter Okerulu. For {`${years} years`} I&apos;ve turned
-            product goals into React and Next.js interfaces that users trust and
-            teams can keep building on.
+            {`I’m Peter Okerulu. For ${years} years I’ve turned product goals into React and Next.js interfaces that users trust and teams can keep building on.`}
           </p>
 
           <div

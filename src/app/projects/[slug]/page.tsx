@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { CaseStudy } from '@/components/sections/projects';
 import { getProject, Projects } from '@/utils/data';
+import { canEmbed } from '@/utils/embed';
 
 const siteUrl = 'https://www.oduchep.com';
 
@@ -40,5 +41,7 @@ export default async function ProjectPage({ params }: Params) {
   const project = Projects[index];
   const next = Projects[(index + 1) % Projects.length];
 
-  return <CaseStudy project={project} next={next} />;
+  const live = await canEmbed(project.project_link);
+
+  return <CaseStudy project={project} next={next} live={live} />;
 }

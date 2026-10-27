@@ -1,13 +1,14 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from 'react-icons/fi';
 
 import { Container } from '@/components/elements';
+import { BrowserFrame } from '@/components/widgets';
 import { ProjectType } from '@/utils/data';
 
 interface CaseStudyProps {
   project: ProjectType;
   next: ProjectType;
+  live: boolean;
 }
 
 const ExternalLink = ({ href, label }: { href: string; label: string }) => (
@@ -25,7 +26,7 @@ const ExternalLink = ({ href, label }: { href: string; label: string }) => (
   </a>
 );
 
-const CaseStudy = ({ project, next }: CaseStudyProps) => {
+const CaseStudy = ({ project, next, live }: CaseStudyProps) => {
   const meta = [
     { label: 'Year', value: project.year },
     project.role && { label: 'Role', value: project.role },
@@ -83,16 +84,14 @@ const CaseStudy = ({ project, next }: CaseStudyProps) => {
       </Container>
 
       <Container className='mt-14'>
-        <div className='border-line bg-surface overflow-hidden rounded-xl border'>
-          <Image
-            src={project.image}
-            alt={`${project.name} screenshot`}
-            sizes='(min-width: 1152px) 1152px, 100vw'
-            placeholder='blur'
-            priority
-            className='w-full'
-          />
-        </div>
+        <BrowserFrame
+          url={project.project_link}
+          image={project.image}
+          alt={`${project.name} website`}
+          live={live}
+          sizes='(min-width: 1152px) 1152px, 100vw'
+          priority
+        />
       </Container>
 
       <Container className='py-20 md:py-28'>

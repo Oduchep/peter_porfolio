@@ -102,7 +102,7 @@ export const Projects: ProjectType[] = [
       'Built a real-time admin dashboard with Next.js to track user activity and transactions.',
       'Integrated APIs to improve data flow and platform performance.',
     ],
-    project_link: 'https://stakecut-landing-page.vercel.app',
+    project_link: 'https://stakecut.com',
   },
   {
     slug: 'blessing-portfolio',
