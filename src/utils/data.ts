@@ -49,11 +49,11 @@ export const Projects: ProjectType[] = [
     summary:
       'A restaurant platform: public website, point of sale and management dashboard, and the API behind them.',
     description:
-      'Supreme Delich is a restaurant, bakery and events business in Port Harcourt. I planned and built the whole platform: the website where customers browse the menu, order and send enquiries; the point of sale and dashboard staff use every day; and the API that ties them together.',
+      'Supreme Delich is a restaurant, bakery and events business in Port Harcourt. I led the project from planning to launch and built the customer website and the point of sale and dashboard staff use every day. The API was started by Cedar Daniel; I extended it with payments, a self-order kiosk, website content and the inventory system.',
     stack: ['Next.js', 'React', 'NestJS', 'PostgreSQL', 'Redis'],
     type: 'private',
     featured: true,
-    role: 'Full-stack engineer, from planning to launch',
+    role: 'Project lead and frontend engineer; backend contributor',
     system: [
       {
         name: 'Website',
@@ -71,16 +71,17 @@ export const Projects: ProjectType[] = [
         name: 'API',
         stack: 'NestJS, PostgreSQL, TypeORM, Redis, BullMQ',
         description:
-          'Order pricing, roles and permissions, the stock ledger, background jobs and cached sales reports.',
+          'Started by Cedar Daniel. I added Paystack payments and refunds, the kiosk, website orders and content, inventory transfers and permissions.',
       },
     ],
     highlights: [
-      'Planned and delivered all three apps, from requirements to production.',
+      'Ran the project as project manager: gathered requirements, planned and broke down the work, and coordinated delivery of all three apps.',
+      'Built the customer website and the POS and management dashboard.',
       'Built a cashier POS with split payments, held orders, discounts, VAT and printed receipts.',
-      'Priced every order on the server from live menu prices, rejecting stale totals so prices can’t drift mid-order.',
-      'Designed a stock system where a central store sends stock to departments through accept/reject transfers, with every movement recorded in a ledger.',
+      'Extended the API with Paystack payments and refunds, a self-order kiosk, website orders and a content module for the website.',
+      'Designed the inventory system: a central store sends stock to departments through accept/reject transfers, with every movement recorded in a ledger.',
       'Replaced fixed roles with admin-defined roles and per-area permissions, enforced in both the API and the interface.',
-      'Gave staff a content manager for the website: opening hours, page copy, services, photos and an enquiries inbox.',
+      'Set up CI, database migrations and staging and production deployments.',
     ],
     project_link: 'https://www.supremedelich.com',
   },
@@ -96,7 +97,7 @@ export const Projects: ProjectType[] = [
     stack: ['Next.js', 'React', 'NestJS', 'PostgreSQL', 'IndexedDB'],
     type: 'private',
     featured: true,
-    role: 'Full-stack engineer, from planning to launch',
+    role: 'Project lead and full-stack engineer',
     system: [
       {
         name: 'Storefront',
@@ -118,7 +119,7 @@ export const Projects: ProjectType[] = [
       },
     ],
     highlights: [
-      'Wrote detailed implementation plans for each app before building, then delivered all three.',
+      'Ran the project end to end: wrote detailed implementation plans for each app, then built and delivered all three.',
       'Built an offline mode for the POS: the catalogue is cached in IndexedDB and sales wait in an outbox that syncs when the connection returns.',
       'Designed WhatsApp checkout: the storefront records an order request, then opens a pre-filled WhatsApp message so staff can arrange delivery and payment.',
       'Kept all money maths in one module with test cases shared by the API, POS and storefront, so totals, VAT and split payments always agree.',

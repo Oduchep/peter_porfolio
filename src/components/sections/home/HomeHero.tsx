@@ -35,11 +35,10 @@ const HomeHero = () => {
           className='rise mt-8 max-w-5xl text-[clamp(2.6rem,6.4vw,5.25rem)] leading-[1.02] font-medium tracking-[-0.045em] text-balance'
           style={delay(1)}
         >
-          Frontend engineer building{' '}
+          Frontend engineer who takes products from{' '}
           <em className='font-serif font-normal tracking-[-0.02em]'>
-            calm, fast
-          </em>{' '}
-          interfaces for fintech and SaaS.
+            plan to production.
+          </em>
         </h1>
 
         <div className='mt-10 grid gap-8 md:grid-cols-12 md:items-end'>
@@ -47,7 +46,9 @@ const HomeHero = () => {
             className='rise text-muted text-lg leading-relaxed text-pretty md:col-span-6'
             style={delay(2)}
           >
-            {`I’m Peter Okerulu. For ${years} years I’ve turned product goals into React and Next.js interfaces that users trust and teams can keep building on.`}
+            I&apos;m Peter Okerulu. I lead projects, build the interface, and
+            extend the API when the product needs it — for fintech, retail and
+            hospitality teams.
           </p>
 
           <div
