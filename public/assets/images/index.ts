@@ -11,3 +11,5 @@ export { default as PeterGreyShirt } from './peter_grey_shirt.png';
 export { default as PexelsCloneScreen } from './pexels_clone_screen.png';
 export { default as StakecutScreen } from './stakecut_screen.png';
 export { default as UmojalinnScreen } from './umojalinn_screen.png';
+export { default as SupremeDelichScreen } from './supreme_delich_screen.png';
+export { default as SophlexxScreen } from './sophlexx_screen.png';

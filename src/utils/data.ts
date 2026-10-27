@@ -4,7 +4,9 @@ import {
   BlessingPortfolioScreen,
   CoastNgScreen,
   PexelsCloneScreen,
+  SophlexxScreen,
   StakecutScreen,
+  SupremeDelichScreen,
   UmojalinnScreen,
 } from '../../public/assets/images';
 
@@ -22,6 +24,8 @@ export interface ProjectType {
   featured?: boolean;
   /** Optional case study details — sections only render when filled in. */
   role?: string;
+  /** The apps that make up a larger build, shown as "The system". */
+  system?: { name: string; stack: string; description: string }[];
   highlights?: string[];
   github_link?: string;
   project_link?: string;
@@ -37,6 +41,91 @@ export interface TestimonialType {
 
 // Order here is the display order.
 export const Projects: ProjectType[] = [
+  {
+    slug: 'supreme-delich',
+    name: 'Supreme Delich',
+    year: 2026,
+    image: SupremeDelichScreen,
+    summary:
+      'A restaurant platform: public website, point of sale and management dashboard, and the API behind them.',
+    description:
+      'Supreme Delich is a restaurant, bakery and events business in Port Harcourt. I planned and built the whole platform: the website where customers browse the menu, order and send enquiries; the point of sale and dashboard staff use every day; and the API that ties them together.',
+    stack: ['Next.js', 'React', 'NestJS', 'PostgreSQL', 'Redis'],
+    type: 'private',
+    featured: true,
+    role: 'Full-stack engineer, from planning to launch',
+    system: [
+      {
+        name: 'Website',
+        stack: 'Next.js, TanStack Query',
+        description:
+          'Menu, cart and checkout, service pages and enquiry forms. All content comes from the API and is edited by staff.',
+      },
+      {
+        name: 'POS and dashboard',
+        stack: 'React, Vite, TanStack Table, Recharts',
+        description:
+          'Cashier point of sale, sales analytics, and management for the menu, inventory, expenses, staff and website content.',
+      },
+      {
+        name: 'API',
+        stack: 'NestJS, PostgreSQL, TypeORM, Redis, BullMQ',
+        description:
+          'Order pricing, roles and permissions, the stock ledger, background jobs and cached sales reports.',
+      },
+    ],
+    highlights: [
+      'Planned and delivered all three apps, from requirements to production.',
+      'Built a cashier POS with split payments, held orders, discounts, VAT and printed receipts.',
+      'Priced every order on the server from live menu prices, rejecting stale totals so prices can’t drift mid-order.',
+      'Designed a stock system where a central store sends stock to departments through accept/reject transfers, with every movement recorded in a ledger.',
+      'Replaced fixed roles with admin-defined roles and per-area permissions, enforced in both the API and the interface.',
+      'Gave staff a content manager for the website: opening hours, page copy, services, photos and an enquiries inbox.',
+    ],
+    project_link: 'https://www.supremedelich.com',
+  },
+  {
+    slug: 'sophlexx-luxury',
+    name: 'Sophlexx Luxury',
+    year: 2026,
+    image: SophlexxScreen,
+    summary:
+      'A decor and event-styling retailer: storefront with WhatsApp checkout, an offline-ready POS and one shared API.',
+    description:
+      'Sophlexx Luxury sells decor and event-styling pieces from a Port Harcourt showroom and online. I planned and built the full system: a customer storefront, a management app with a point of sale that keeps selling without internet, and one API serving both from a shared catalogue and stock.',
+    stack: ['Next.js', 'React', 'NestJS', 'PostgreSQL', 'IndexedDB'],
+    type: 'private',
+    featured: true,
+    role: 'Full-stack engineer, from planning to launch',
+    system: [
+      {
+        name: 'Storefront',
+        stack: 'Next.js, TanStack Query',
+        description:
+          'Catalogue, collections, product pages and cart, reading the same stock as the showroom.',
+      },
+      {
+        name: 'Management app and POS',
+        stack: 'React, Vite, Dexie, Vitest',
+        description:
+          'Showroom point of sale with split payments, returns and exchanges, plus admin for products, orders and staff.',
+      },
+      {
+        name: 'API',
+        stack: 'NestJS, PostgreSQL (Supabase), Redis, BullMQ',
+        description:
+          'One API for the POS, the admin and the storefront, with emailed receipts and migration-managed schema.',
+      },
+    ],
+    highlights: [
+      'Wrote detailed implementation plans for each app before building, then delivered all three.',
+      'Built an offline mode for the POS: the catalogue is cached in IndexedDB and sales wait in an outbox that syncs when the connection returns.',
+      'Designed WhatsApp checkout: the storefront records an order request, then opens a pre-filled WhatsApp message so staff can arrange delivery and payment.',
+      'Kept all money maths in one module with test cases shared by the API, POS and storefront, so totals, VAT and split payments always agree.',
+      'Locked down the database: schema changes only through migrations, and public data API access revoked.',
+    ],
+    project_link: 'https://www.sophlexx.com',
+  },
   {
     slug: 'akilaah',
     name: 'Akilaah',
@@ -81,7 +170,6 @@ export const Projects: ProjectType[] = [
       'Umojalinn is an Afro-Irish digital marketplace connecting African-inspired fashion designers to global customers. It champions cultural unity, supports emerging creators, and offers quality, ethically made apparel.',
     stack: ['Next.js', 'JavaScript', 'Tailwind CSS'],
     type: 'private',
-    featured: true,
     project_link: 'https://www.umojalinn.com',
   },
   {
@@ -95,7 +183,6 @@ export const Projects: ProjectType[] = [
       'Stakecut is an African affiliate marketing platform that lets anyone earn commissions by sharing product links, with no upfront cost. It offers high payouts, multiple currencies, training, and weekly payments.',
     stack: ['Next.js', 'JavaScript', 'Tailwind CSS'],
     type: 'private',
-    featured: true,
     role: 'Frontend Developer (Contract)',
     highlights: [
       'Revamped stakecut.com, improving user retention by 30% with better navigation and features.',

@@ -18,7 +18,7 @@ const SelectedWork = async () => {
           id='work-title'
           index='01'
           label='Selected work'
-          title='Products I’ve helped ship, from community finance to fashion.'
+          title='Products I’ve shipped, from restaurants and retail to fintech.'
           action={
             <ButtonLink
               href={portfolioRoutes.PROJECTS}

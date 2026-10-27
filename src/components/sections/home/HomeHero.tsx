@@ -13,8 +13,8 @@ const HomeHero = () => {
   const facts = [
     { label: 'Currently', value: 'Lead Frontend Engineer at MAJFintech' },
     { label: 'Experience', value: `${years} years, since 2020` },
-    { label: 'Focus', value: 'Fintech, SaaS and marketplaces' },
-    { label: 'Stack', value: 'React, Next.js, TypeScript' },
+    { label: 'Focus', value: 'Fintech, SaaS, retail and hospitality' },
+    { label: 'Stack', value: 'React, Next.js, NestJS, TypeScript' },
   ];
 
   return (

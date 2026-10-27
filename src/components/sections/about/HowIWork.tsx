@@ -17,8 +17,12 @@ const principles = [
 
 const toolkit = [
   { group: 'Languages', items: 'TypeScript, JavaScript, HTML, CSS' },
-  { group: 'Frameworks', items: 'React, Next.js, Vue' },
+  { group: 'Frontend', items: 'React, Next.js, Vue, TanStack Query' },
   { group: 'Styling', items: 'Tailwind CSS, responsive design' },
+  {
+    group: 'Backend',
+    items: 'NestJS, PostgreSQL, TypeORM, Redis, BullMQ',
+  },
   { group: 'Workflow', items: 'Git, GitHub, GitLab, Agile delivery' },
 ];
 

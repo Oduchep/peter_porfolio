@@ -104,6 +104,32 @@ const CaseStudy = ({ project, next, live }: CaseStudyProps) => {
           </p>
         </section>
 
+        {project.system && project.system.length > 0 && (
+          <section className='mt-16 grid gap-4 md:grid-cols-12 md:gap-8'>
+            <h2 className='text-subtle font-mono text-xs md:col-span-3'>
+              The system
+            </h2>
+            <ol className='grid gap-8 sm:grid-cols-3 sm:gap-6 md:col-span-9'>
+              {project.system.map((part, i) => (
+                <li key={part.name} className='border-line border-t pt-4'>
+                  <p className='text-accent-ink font-mono text-xs'>
+                    {String(i + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className='mt-2 font-medium tracking-tight'>
+                    {part.name}
+                  </h3>
+                  <p className='text-muted mt-2 text-[15px] leading-relaxed text-pretty'>
+                    {part.description}
+                  </p>
+                  <p className='text-subtle mt-3 font-mono text-xs leading-5'>
+                    {part.stack}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+
         {project.highlights && project.highlights.length > 0 && (
           <section className='mt-16 grid gap-4 md:grid-cols-12 md:gap-8'>
             <h2 className='text-subtle font-mono text-xs md:col-span-3'>
