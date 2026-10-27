@@ -1,70 +1,35 @@
-import React, { TextareaHTMLAttributes } from 'react';
+import { forwardRef, TextareaHTMLAttributes, useId } from 'react';
+import { fieldClass } from './CustomInput';
 
-interface CustomTextareaProps
-  extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'className'> {
-  label?: string;
+interface CustomTextAreaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label: string;
   error?: string;
-  className?: string;
-  wrapperClassName?: string;
-  labelClassName?: string;
-  errorClassName?: string;
-  required?: boolean;
 }
 
-const CustomTextArea = React.forwardRef<
-  HTMLTextAreaElement,
-  CustomTextareaProps
->(
-  (
-    {
-      label,
-      error,
-      className = '',
-      wrapperClassName = '',
-      labelClassName = '',
-      errorClassName = '',
-      required,
-      disabled,
-      rows = 3,
-      ...props
-    },
-    ref
-  ) => {
-    const textareaClassName = `
-      all__trans w-full resize-none rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3
-      text-slate-900 shadow-sm placeholder:text-slate-400 focus:border-tertiary-default
-      focus:bg-white focus:ring-4 focus:ring-slate-200/70 focus:outline-0
-      dark:border-white/12 dark:bg-white/5 dark:text-white dark:placeholder:text-white/35
-      dark:focus:border-secondary-default dark:focus:bg-white/8 dark:focus:ring-white/10
-      ${disabled ? 'cursor-not-allowed bg-slate-100 text-slate-400 dark:bg-white/5 dark:text-white/40' : ''}
-      ${className}
-    `.trim();
+const CustomTextArea = forwardRef<HTMLTextAreaElement, CustomTextAreaProps>(
+  ({ label, error, required, rows = 4, className = '', ...props }, ref) => {
+    const id = useId();
+    const errorId = `${id}-error`;
 
     return (
-      <div className={`w-full ${wrapperClassName}`}>
-        {label && (
-          <div className='mb-2 flex items-center'>
-            <div className='flex items-center gap-1'>
-              <label
-                className={`${labelClassName} text-left text-sm font-medium text-slate-700 dark:text-white/80`}
-              >
-                {label}
-              </label>
-              {required && <span className='text-red-500'>*</span>}
-            </div>
-          </div>
-        )}
-
+      <div className='w-full'>
+        <label htmlFor={id} className='text-muted font-mono text-xs'>
+          {label}
+          {required && <span aria-hidden='true'> *</span>}
+        </label>
         <textarea
           ref={ref}
+          id={id}
           rows={rows}
-          disabled={disabled}
-          className={textareaClassName}
+          required={required}
+          aria-invalid={!!error || undefined}
+          aria-describedby={error ? errorId : undefined}
+          className={`${fieldClass} resize-none ${className}`}
           {...props}
         />
-
         {error && (
-          <p className={`text-xsm mt-2 ml-1 text-red-500 ${errorClassName}`}>
+          <p id={errorId} className='mt-2 text-sm text-red-600 dark:text-red-400'>
             {error}
           </p>
         )}

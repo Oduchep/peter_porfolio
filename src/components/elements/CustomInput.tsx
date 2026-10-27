@@ -1,81 +1,36 @@
-import React, { InputHTMLAttributes } from 'react';
+import { forwardRef, InputHTMLAttributes, useId } from 'react';
 
 export interface CustomInputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'className'> {
-  label?: string;
+  extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
   error?: string;
-  className?: string;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
-  wrapperClassName?: string;
-  labelClassName?: string;
-  errorClassName?: string;
-  required?: boolean;
 }
 
-const CustomInput = React.forwardRef<HTMLInputElement, CustomInputProps>(
-  (
-    {
-      label,
-      error,
-      className = '',
-      wrapperClassName = '',
-      labelClassName = '',
-      errorClassName = '',
-      leftIcon,
-      rightIcon,
-      maxLength,
-      disabled,
-      required,
-      ...props
-    },
-    ref
-  ) => {
-    const containerClass = `
-      all__trans flex w-full items-center gap-2 rounded-2xl border border-slate-300 bg-slate-50 px-4 py-3
-      text-slate-900 shadow-sm focus-within:border-tertiary-default focus-within:bg-white
-      focus-within:ring-4 focus-within:ring-slate-200/70 focus-within:outline-0
-      dark:border-white/12 dark:bg-white/5 dark:text-white dark:focus-within:border-secondary-default
-      dark:focus-within:bg-white/8 dark:focus-within:ring-white/10
-      ${disabled ? 'cursor-not-allowed bg-slate-100 text-slate-400 dark:bg-white/5 dark:text-white/40' : ''}
-      ${className}
-    `.trim();
+export const fieldClass =
+  'w-full border-b border-line-strong bg-transparent py-3 text-base text-fg outline-none transition-colors placeholder:text-subtle focus:border-fg aria-invalid:border-red-500';
 
-    const inputClass = `
-      all__trans w-full bg-transparent outline-0 placeholder:text-slate-400 dark:placeholder:text-white/35
-    `.trim();
+const CustomInput = forwardRef<HTMLInputElement, CustomInputProps>(
+  ({ label, error, required, className = '', ...props }, ref) => {
+    const id = useId();
+    const errorId = `${id}-error`;
 
     return (
-      <div className={`w-full ${wrapperClassName}`}>
-        {label && (
-          <div className='mb-2 flex items-center'>
-            <div className='flex items-center gap-1'>
-              <label
-                className={`${labelClassName} text-left text-sm font-medium text-slate-700 dark:text-white/80`}
-              >
-                {label}
-              </label>
-              {required && <span className='text-red-500'>*</span>}
-            </div>
-          </div>
-        )}
-
-        <div className={containerClass}>
-          {leftIcon && <div>{leftIcon}</div>}
-
-          <input
-            ref={ref}
-            maxLength={maxLength}
-            disabled={disabled}
-            className={inputClass}
-            {...props}
-          />
-
-          {rightIcon && <div className='cursor-pointer'>{rightIcon}</div>}
-        </div>
-
+      <div className='w-full'>
+        <label htmlFor={id} className='text-muted font-mono text-xs'>
+          {label}
+          {required && <span aria-hidden='true'> *</span>}
+        </label>
+        <input
+          ref={ref}
+          id={id}
+          required={required}
+          aria-invalid={!!error || undefined}
+          aria-describedby={error ? errorId : undefined}
+          className={`${fieldClass} ${className}`}
+          {...props}
+        />
         {error && (
-          <p className={`text-xsm mt-1 ml-1 text-red-500 ${errorClassName}`}>
+          <p id={errorId} className='mt-2 text-sm text-red-600 dark:text-red-400'>
             {error}
           </p>
         )}

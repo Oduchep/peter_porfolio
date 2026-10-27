@@ -1,102 +1,68 @@
-import { CustomButton, SectionHero } from '@/components/elements';
-import { getYearsOfExperience } from '@/utils/DateFormatters';
+import Image from 'next/image';
+import { CSSProperties } from 'react';
+import { FiArrowUpRight } from 'react-icons/fi';
+
+import { ButtonLink, Container } from '@/components/elements';
 import { externalRoutes } from '@/utils/PortfolioRoutes';
+import { PeterHeadshot } from '../../../../public/assets/images';
 
-const AboutHero = () => {
-  const workingPrinciples = [
-    'Clear UX before visual noise',
-    'Maintainable frontend systems over quick hacks',
-    'Responsive design that feels native on every screen',
-  ];
+const delay = (d: number) => ({ '--d': d }) as CSSProperties;
 
-  return (
-    <SectionHero
-      eyebrow='About'
-      title='Frontend engineering with'
-      accent='taste, discipline, and product empathy.'
-      description={
-        <>
+const AboutHero = () => (
+  <section className='pt-16 pb-16 md:pt-24 md:pb-24'>
+    <Container className='grid gap-12 md:grid-cols-12 md:gap-8'>
+      <div className='md:col-span-7'>
+        <p className='rise text-subtle font-mono text-xs' style={delay(0)}>
+          About
+        </p>
+        <h1
+          className='rise mt-6 text-[clamp(2.4rem,5vw,4rem)] leading-[1.04] font-medium tracking-[-0.04em] text-balance'
+          style={delay(1)}
+        >
+          I care about how products{' '}
+          <em className='font-serif font-normal'>feel</em> in real hands.
+        </h1>
+
+        <div
+          className='rise text-muted mt-8 max-w-xl space-y-5 text-lg leading-relaxed text-pretty'
+          style={delay(2)}
+        >
           <p>
-            I&apos;m Peter Okerulu, a frontend engineer who cares deeply about
-            how products feel in real hands. I build interfaces that are not
-            only visually refined, but also structured to support growth,
-            collaboration, and long-term maintainability.
+            I&apos;m Peter Okerulu, a frontend engineer based in Port Harcourt,
+            Nigeria. I build interfaces that look refined and are structured to
+            support growth, collaboration and long-term maintenance.
           </p>
-          <p className='mt-4'>
-            Since starting my journey in 2019, I&apos;ve worked across agency,
-            contract, and startup environments, helping teams ship clearer user
-            journeys, stronger UI systems, and more polished web experiences.
-            Today, I lead frontend work at MAJFintech, where I combine
-            execution, mentoring, and product thinking to move projects forward.
+          <p>
+            Since starting out in 2019 I&apos;ve worked across agency, contract
+            and startup teams. Today I lead frontend at MAJFintech, where I mix
+            hands-on execution, mentoring and product thinking.
           </p>
-        </>
-      }
-      stats={[
-        { value: '2019', label: 'Career start' },
-        {
-          value: getYearsOfExperience(),
-          label: 'Years shipping with React and Next.js',
-        },
-        { value: '1', label: 'Product mindset across every build' },
-      ]}
-      primaryAction={
-        <CustomButton
-          className='bg-tertiary-default dark:bg-secondary-default dark:text-primary-default w-full rounded-full text-base text-white uppercase sm:w-64'
-          dotClassName='bg-white dark:bg-[#0A0A0A]'
-          href={externalRoutes.RESUME}
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Download Resume
-        </CustomButton>
-      }
-      secondaryAction={
-        <CustomButton
-          className='w-full rounded-full border border-slate-300 bg-white text-base text-slate-900! uppercase sm:w-56 dark:border-white/10 dark:bg-transparent dark:text-white!'
-          href='mailto:oduchep@gmail.com'
-        >
-          Let&apos;s Talk
-        </CustomButton>
-      }
-      aside={
-        <div className='space-y-6'>
-          <div>
-            <p className='text-xs font-semibold tracking-[0.22em] text-slate-500 uppercase dark:text-white/55'>
-              How I work
-            </p>
-            <h2 className='mt-3 text-2xl font-semibold text-slate-950 dark:text-white'>
-              Thoughtful execution over surface-level polish.
-            </h2>
-          </div>
-
-          <div className='space-y-3'>
-            {workingPrinciples.map((principle) => (
-              <div
-                key={principle}
-                className='flex items-center gap-3 rounded-2xl border border-slate-200/80 bg-white/70 p-4 dark:border-white/10 dark:bg-white/3'
-              >
-                <span className='bg-tertiary-default dark:bg-secondary-default mt-1 h-2.5 w-2.5 rounded-full' />
-                <p className='flex-1 text-sm text-slate-600 dark:text-white/72'>
-                  {principle}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className='dark:text-primary-default rounded-3xl bg-[linear-gradient(135deg,#294068_0%,#172135_100%)] p-5 text-white dark:bg-[linear-gradient(135deg,#D3E97A_0%,#B7D24E_100%)]'>
-            <p className='dark:text-primary-default/70 text-xs font-semibold tracking-[0.22em] text-white/70 uppercase'>
-              Outside work
-            </p>
-            <p className='dark:text-primary-default/85 mt-3 text-sm leading-6 text-white/88'>
-              When I&apos;m away from the screen, I recharge with detective
-              novels, table tennis, and the kind of competitive FIFA sessions
-              that keep my reflexes sharp.
-            </p>
-          </div>
         </div>
-      }
-    />
-  );
-};
+
+        <div className='rise mt-10 flex flex-wrap gap-3' style={delay(3)}>
+          <ButtonLink href={externalRoutes.RESUME} external>
+            Resume <FiArrowUpRight aria-hidden />
+          </ButtonLink>
+          <ButtonLink href='/#contact' variant='secondary'>
+            Get in touch
+          </ButtonLink>
+        </div>
+      </div>
+
+      <div className='rise md:col-span-4 md:col-start-9' style={delay(2)}>
+        <div className='border-line bg-surface overflow-hidden rounded-xl border'>
+          <Image
+            src={PeterHeadshot}
+            alt='Portrait of Peter Okerulu'
+            sizes='(min-width: 768px) 33vw, 100vw'
+            placeholder='blur'
+            priority
+            className='aspect-4/5 w-full object-cover object-top'
+          />
+        </div>
+      </div>
+    </Container>
+  </section>
+);
 
 export default AboutHero;

@@ -1,41 +1,48 @@
 'use client';
 
-import { startTransition, useEffect, useState } from 'react';
-import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
+import { useSyncExternalStore } from 'react';
+import { FiMoon, FiSun } from 'react-icons/fi';
+
+// The <html> "dark" class is the single source of truth. It is set before
+// paint by the inline script in layout.tsx, so every toggle instance reads it
+// and stays in sync.
+const subscribe = (onChange: () => void) => {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+  return () => observer.disconnect();
+};
+
+const getSnapshot = () => document.documentElement.classList.contains('dark');
+const getServerSnapshot = () => true;
 
 const DarkModeToggle = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const darkMode = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
 
-  // Initialise from localStorage after hydration, then keep in sync
-  useEffect(() => {
-    const stored = localStorage.getItem('theme');
-    const isDark = stored !== null ? stored === 'dark' : true;
-    startTransition(() => {
-      setDarkMode(isDark);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (darkMode) {
-      localStorage.setItem('theme', 'dark');
-      document.documentElement.classList.add('dark');
-    } else {
-      localStorage.setItem('theme', 'light');
-      document.documentElement.classList.remove('dark');
+  const toggle = () => {
+    const next = !darkMode;
+    document.documentElement.classList.toggle('dark', next);
+    try {
+      localStorage.setItem('theme', next ? 'dark' : 'light');
+    } catch {
+      // Storage can be unavailable (private mode); the toggle still works.
     }
-  }, [darkMode]);
+  };
 
   return (
     <button
-      onClick={() => setDarkMode((prev) => !prev)}
-      className='text-xl'
-      suppressHydrationWarning
+      type='button'
+      onClick={toggle}
+      aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      className='border-line text-muted hover:text-fg hover:border-line-strong inline-flex size-9 items-center justify-center rounded-full border transition-colors'
     >
-      {darkMode ? (
-        <BsFillSunFill className='cursor-pointer text-amber-500' />
-      ) : (
-        <BsFillMoonStarsFill className='cursor-pointer text-amber-200' />
-      )}
+      {darkMode ? <FiSun /> : <FiMoon />}
     </button>
   );
 };
