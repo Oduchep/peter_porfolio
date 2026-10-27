@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { ProjectType } from '@/utils/data';
+import { workPath } from '@/utils/PortfolioRoutes';
 import BrowserFrame from './BrowserFrame';
 
 // Large tile used for featured work. The title link is stretched over the
@@ -28,7 +29,7 @@ const ProjectTile = ({
     <div className='mt-5 flex items-baseline justify-between gap-4'>
       <h3 className='text-lg font-medium tracking-tight'>
         <Link
-          href={`/projects/${project.slug}`}
+          href={workPath(project.slug)}
           className='flex items-center gap-1.5 after:absolute after:inset-0'
         >
           {project.name}

@@ -4,6 +4,7 @@ import { FiArrowLeft, FiArrowRight, FiArrowUpRight } from 'react-icons/fi';
 import { Container } from '@/components/elements';
 import { BrowserFrame } from '@/components/widgets';
 import { ProjectType } from '@/utils/data';
+import { portfolioRoutes, workPath } from '@/utils/PortfolioRoutes';
 
 interface CaseStudyProps {
   project: ProjectType;
@@ -41,14 +42,14 @@ const CaseStudy = ({ project, next, live }: CaseStudyProps) => {
     <article>
       <Container className='pt-10 md:pt-16'>
         <Link
-          href='/projects'
+          href={portfolioRoutes.WORK}
           className='group text-muted hover:text-fg inline-flex items-center gap-1.5 font-mono text-xs transition-colors'
         >
           <FiArrowLeft
             aria-hidden
             className='transition-transform group-hover:-translate-x-0.5'
           />
-          All projects
+          All work
         </Link>
 
         <header className='mt-10 grid gap-8 md:grid-cols-12'>
@@ -154,7 +155,7 @@ const CaseStudy = ({ project, next, live }: CaseStudyProps) => {
 
       <Container>
         <Link
-          href={`/projects/${next.slug}`}
+          href={workPath(next.slug)}
           className='group border-line flex items-end justify-between gap-6 border-t pt-6'
         >
           <div>

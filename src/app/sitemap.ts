@@ -18,13 +18,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${siteUrl}/projects`,
+      url: `${siteUrl}/work`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     ...Projects.map((project) => ({
-      url: `${siteUrl}/projects/${project.slug}`,
+      url: `${siteUrl}/work/${project.slug}`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.6,

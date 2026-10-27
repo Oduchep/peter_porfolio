@@ -4,17 +4,17 @@ import { ProjectRow } from '@/components/widgets';
 import { Projects } from '@/utils/data';
 
 export const metadata: Metadata = {
-  title: 'Projects',
+  title: 'Work',
   description:
     'Browse the full portfolio of projects by Peter Okerulu — spanning fintech, SaaS, marketplaces, and personal builds, all crafted with React and Next.js.',
   alternates: {
-    canonical: 'https://www.oduchep.com/projects',
+    canonical: 'https://www.oduchep.com/work',
   },
   openGraph: {
-    title: 'Projects | Peter Okerulu',
+    title: 'Work | Peter Okerulu',
     description:
       'Browse the full portfolio of projects by Peter Okerulu — spanning fintech, SaaS, marketplaces, and personal builds, all crafted with React and Next.js.',
-    url: 'https://www.oduchep.com/projects',
+    url: 'https://www.oduchep.com/work',
   },
 };
 
@@ -31,13 +31,13 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'Projects',
-      item: 'https://www.oduchep.com/projects',
+      name: 'Work',
+      item: 'https://www.oduchep.com/work',
     },
   ],
 };
 
-const ProjectsPage = () => {
+const WorkPage = () => {
   return (
     <>
       <script
@@ -72,4 +72,4 @@ const ProjectsPage = () => {
   );
 };
 
-export default ProjectsPage;
+export default WorkPage;
