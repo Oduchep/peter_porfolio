@@ -1,7 +1,7 @@
 'use client';
 
 import { useSyncExternalStore } from 'react';
-import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
+import { FiMoon, FiSun } from 'react-icons/fi';
 
 // The <html> "dark" class is the single source of truth. It is set before
 // paint by the inline script in layout.tsx, so every toggle instance reads it
@@ -40,13 +40,9 @@ const DarkModeToggle = () => {
       type='button'
       onClick={toggle}
       aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-      className='text-xl'
+      className='border-line text-muted hover:text-fg hover:border-line-strong inline-flex size-9 items-center justify-center rounded-full border transition-colors'
     >
-      {darkMode ? (
-        <BsFillSunFill className='text-amber-500' />
-      ) : (
-        <BsFillMoonStarsFill className='text-amber-200' />
-      )}
+      {darkMode ? <FiSun /> : <FiMoon />}
     </button>
   );
 };

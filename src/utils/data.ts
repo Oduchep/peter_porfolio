@@ -9,14 +9,22 @@ import {
 } from '../../public/assets/images';
 
 export interface ProjectType {
-  project_name: string;
-  project_year: string | number;
-  project_img: string | StaticImageData;
-  project_desc: string;
-  tools: string[];
+  slug: string;
+  name: string;
+  year: number;
+  image: StaticImageData;
+  /** One line, shown in lists. */
+  summary: string;
+  /** Longer overview, shown on the case study page. */
+  description: string;
+  stack: string[];
+  type: 'public' | 'private';
+  featured?: boolean;
+  /** Optional case study details — sections only render when filled in. */
+  role?: string;
+  highlights?: string[];
   github_link?: string;
   project_link?: string;
-  project_type: 'public' | 'private';
 }
 
 export interface TestimonialType {
@@ -27,105 +35,108 @@ export interface TestimonialType {
   date: string;
 }
 
-const projectsData: ProjectType[] = [
+// Order here is the display order.
+export const Projects: ProjectType[] = [
   {
-    project_name: 'Akilaah',
-    project_year: 2024,
-    project_img: AkilaahScreen,
-    project_desc:
+    slug: 'akilaah',
+    name: 'Akilaah',
+    year: 2024,
+    image: AkilaahScreen,
+    summary:
+      'Savings, loans and welfare management for cooperatives and community groups.',
+    description:
       'Akilaah is a platform that helps communities manage savings, loans, and welfare. It makes it easy for groups to save together, support each other, and stay organized and transparent.',
-    tools: [
-      'JavaScript',
-      'TypeScript',
-      'Github',
-      'Next',
-      'HTML',
-      'CSS',
-      'Tailwind',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    type: 'private',
+    featured: true,
+    role: 'Lead Frontend Engineer, MAJFintech',
+    highlights: [
+      'Lead frontend development for the platform, improving UI/UX and performance.',
+      'Work with cross-functional teams to turn business needs into scalable features.',
     ],
-    project_type: 'private',
     project_link: 'https://www.akilaah.com',
   },
   {
-    project_name: 'Blessing Portfolio',
-    project_year: 2025,
-    project_img: BlessingPortfolioScreen,
-    project_desc:
-      'A fully responsive portfolio website for a product designer colleague of mine. Brought to life in the shortest possible time.',
-    tools: [
-      'HTML',
-      'JavaScript',
-      'TypeScript',
-      'React',
-      'CSS',
-      'Tailwind',
-      'Gitlab',
+    slug: 'coast-ng',
+    name: 'Coast.ng',
+    year: 2024,
+    image: CoastNgScreen,
+    summary:
+      'A fintech app for trading gift cards and crypto, paying bills and moving money.',
+    description:
+      'Coast.ng is a Nigerian fintech platform where users can trade gift cards, crypto, airtime, and data, pay bills, transfer funds, and earn through referrals — all in one secure app.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    type: 'private',
+    featured: true,
+    project_link: 'https://www.coast.ng',
+  },
+  {
+    slug: 'umojalinn',
+    name: 'Umojalinn',
+    year: 2025,
+    image: UmojalinnScreen,
+    summary:
+      'An Afro-Irish marketplace connecting African-inspired fashion designers with global customers.',
+    description:
+      'Umojalinn is an Afro-Irish digital marketplace connecting African-inspired fashion designers to global customers. It champions cultural unity, supports emerging creators, and offers quality, ethically made apparel.',
+    stack: ['Next.js', 'JavaScript', 'Tailwind CSS'],
+    type: 'private',
+    featured: true,
+    project_link: 'https://www.umojalinn.com',
+  },
+  {
+    slug: 'stakecut',
+    name: 'Stakecut',
+    year: 2022,
+    image: StakecutScreen,
+    summary:
+      'An affiliate marketing platform where anyone can earn commissions by sharing product links.',
+    description:
+      'Stakecut is an African affiliate marketing platform that lets anyone earn commissions by sharing product links, with no upfront cost. It offers high payouts, multiple currencies, training, and weekly payments.',
+    stack: ['Next.js', 'JavaScript', 'Tailwind CSS'],
+    type: 'private',
+    featured: true,
+    role: 'Frontend Developer (Contract)',
+    highlights: [
+      'Revamped stakecut.com, improving user retention by 30% with better navigation and features.',
+      'Built a real-time admin dashboard with Next.js to track user activity and transactions.',
+      'Integrated APIs to improve data flow and platform performance.',
     ],
-    project_type: 'public',
+    project_link: 'https://stakecut-landing-page.vercel.app',
+  },
+  {
+    slug: 'blessing-portfolio',
+    name: 'Blessing Bisong Portfolio',
+    year: 2025,
+    image: BlessingPortfolioScreen,
+    summary:
+      'A responsive portfolio for a product designer, shipped on a tight timeline.',
+    description:
+      'A fully responsive portfolio website for a product designer colleague, brought to life in the shortest possible time.',
+    stack: ['React', 'TypeScript', 'Tailwind CSS'],
+    type: 'public',
     github_link: 'https://gitlab.com/oduchep/blessing_portfolio',
     project_link: 'https://blessing-bisong.netlify.app',
   },
   {
-    project_name: 'Coast Ng',
-    project_year: 2024,
-    project_img: CoastNgScreen,
-    project_desc:
-      'Coast.ng is a Nigerian fintech platform where users can trade gift cards, crypto, airtime, and data, pay bills, transfer funds, and earn through referrals—all in one secure app.',
-    tools: [
-      'JavaScript',
-      'TypeScript',
-      'Github',
-      'Next',
-      'HTML',
-      'CSS',
-      'Tailwind',
-    ],
-    project_type: 'private',
-    project_link: 'https://www.coast.ng',
-  },
-  {
-    project_name: 'Stakecut',
-    project_year: 2022,
-    project_img: StakecutScreen,
-    project_desc:
-      'Stakecut is an African affiliate marketing platform that empowers anyone to earn commissions by sharing product links—no upfront cost. It offers high payouts, multiple currencies, training, and weekly payments.',
-    tools: ['HTML', 'CSS', 'Tailwind', 'JavaScript', 'Next', 'Github'],
-    project_type: 'private',
-    project_link: 'https://stakecut-landing-page.vercel.app',
-  },
-  {
-    project_name: 'Pexels Clone',
-    project_year: 2022,
-    project_img: PexelsCloneScreen,
-    project_desc:
-      'This is a clone website of the Pexels website. It was something I did in my spare time, a few years into my dev career.',
-    tools: ['HTML', 'CSS', 'Tailwind', 'JavaScript', 'Vue', 'Github'],
-    project_type: 'public',
+    slug: 'pexels-clone',
+    name: 'Pexels Clone',
+    year: 2022,
+    image: PexelsCloneScreen,
+    summary: 'A Vue rebuild of Pexels, made as an early-career side project.',
+    description:
+      'A clone of the Pexels website, built in my spare time a few years into my career to practise layout, image grids and API work.',
+    stack: ['Vue', 'JavaScript', 'Tailwind CSS'],
+    type: 'public',
     github_link: 'https://github.com/Oduchep/pexels-clone',
     project_link: 'https://pexels-replica.vercel.app',
   },
-  {
-    project_name: 'Umojalinn website',
-    project_year: 2025,
-    project_img: UmojalinnScreen,
-    project_desc:
-      'Umoja linn is an Afro-Irish digital marketplace connecting African-inspired fashion designers to global customers. It champions cultural unity, supports emerging creators, and offers quality, ethically-made apparel.',
-    tools: ['HTML', 'CSS', 'Tailwind', 'JavaScript', 'Next', 'Github'],
-    project_type: 'private',
-    project_link: 'https://www.umojalinn.com',
-  },
 ];
 
-export const Projects = projectsData?.sort(
-  (
-    a: { project_year: string | number | Date },
-    b: { project_year: string | number | Date }
-  ) => {
-    return (
-      new Date(b.project_year).getTime() - new Date(a.project_year).getTime()
-    );
-  }
-);
+export const FeaturedProjects = Projects.filter((p) => p.featured);
+
+export const getProject = (slug: string) =>
+  Projects.find((p) => p.slug === slug);
 
 export const Experiences = [
   {

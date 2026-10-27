@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { AboutHero, MySkillset } from '@/components/sections/about';
+import { AboutHero, HowIWork, OutsideWork } from '@/components/sections/about';
+import { ExperienceSection } from '@/components/sections/home';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -42,10 +43,10 @@ const AboutPage = () => {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <div>
-        <AboutHero />
-        <MySkillset />
-      </div>
+      <AboutHero />
+      <HowIWork />
+      <ExperienceSection index='03' />
+      <OutsideWork />
     </>
   );
 };

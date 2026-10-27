@@ -2,69 +2,82 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@theme {
-  /* --font-poppins: Poppins, sans-serif; */
-  --font-inter: Inter, sans-serif;
-  --font-public-sans: 'Public Sans', sans-serif;
-
-  /* Define your colors directly as CSS variables */
-  --color-primary-default: #000627;
-  --color-secondary-default: #D3E97A;
-  --color-tertiary-default: #294068;
-  --color-accent: #FF5733;
-  /* New custom color */
-
-  /* Define font families */
-  --font-heading: 'Roboto', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
-
-  /* Define breakpoints (prefixed with --breakpoint- for screen variants) */
-  --breakpoint-3xl: 1536px;
-
-  /* Define font sizes (prefixed with --text- for text- utilities) */
-  --text-clamped: clamp(2rem, 2vw + 1rem, 3rem);
-
-  /* Spacing scale (can be used for px-*, mt-*, w-*, h-*, etc.) */
-  --spacing: 0.25rem;
-  /* 1 unit = 0.25rem; so --spacing * 4 = 1rem */
+/* ---------- Design tokens ---------- */
+/* One set of names, two themes. Components only use these. */
+:root {
+  --bg: #f7f7f4;
+  --surface: #ffffff;
+  --fg: #0c0e12;
+  --muted: #555a65;
+  --subtle: #676c76;
+  --line: #e3e3dc;
+  --line-strong: #cbcbc2;
+  --accent: #d3e97a;
+  --accent-ink: #4a6400; /* accent dark enough for text on light bg */
+  --on-accent: #0c0e12;
 }
 
-:root {
-  font-family: var(--font-rubik);
+.dark {
+  --bg: #07080c;
+  --surface: #0e1016;
+  --fg: #eef0f3;
+  --muted: #a1a6b2;
+  --subtle: #747988;
+  --line: #1c1f28;
+  --line-strong: #2c303c;
+  --accent-ink: #d3e97a;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
 }
 
 html,
 body {
-  font-family: var(--font-rubik);
-  scroll-behavior: smooth;
   /* clip (not hidden) so the page scrolls on the window and sticky nav works */
   overflow-x: clip;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: 'ss01', 'cv11';
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-inter);
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
-
-.all__trans {
-  transition: all ease-in-out;
-  transition-duration: 350ms;
-}
-
-.slow__trans {
-  transition: all ease-in-out;
-  transition-duration: 500ms;
+:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 button {
@@ -73,4 +86,36 @@ button {
 
 button:disabled {
   cursor: not-allowed;
+}
+
+/* ---------- Motion ---------- */
+/* Small entrance used on page heroes. Stagger with style={{ '--d': 2 }}. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--d, 0) * 80ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

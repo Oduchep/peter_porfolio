@@ -1,7 +1,5 @@
-export { default as Heading2 } from './Heading2';
-export { default as CustomTextArea } from './CustomTextArea';
+export { default as Container } from './Container';
+export { default as SectionHeader } from './SectionHeader';
+export { default as ButtonLink, Button, buttonClass } from './ButtonLink';
 export { default as CustomInput } from './CustomInput';
-export { default as CustomButton } from './CustomButton';
-export { default as CustomTabs } from './CustomTabs';
-export { default as SectionHero } from './SectionHero';
-export { default as SectionIntro } from './SectionIntro';
+export { default as CustomTextArea } from './CustomTextArea';

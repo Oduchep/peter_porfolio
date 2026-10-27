@@ -1,9 +1,15 @@
-const Footer = () => {
-  return (
-    <footer className='mt-auto px-10 py-5 text-center text-sm'>
-      &copy; {new Date().getFullYear()} Peter Okerulu. All rights reserved.
-    </footer>
-  );
-};
+import { Container } from '@/components/elements';
+import LocalTime from './LocalTime';
+
+const Footer = () => (
+  <footer className='border-line mt-auto border-t'>
+    <Container className='text-subtle flex flex-col gap-2 py-8 font-mono text-xs sm:flex-row sm:items-center sm:justify-between'>
+      <p>&copy; {new Date().getFullYear()} Peter Okerulu</p>
+      <p>
+        Port Harcourt, NG · <LocalTime /> WAT
+      </p>
+    </Container>
+  </footer>
+);
 
 export default Footer;

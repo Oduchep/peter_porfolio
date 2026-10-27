@@ -5,12 +5,13 @@ const portfolioRoutes = {
 };
 
 const navRoutes = [
-  { label: 'Home', link: portfolioRoutes.HOME },
+  { label: 'Work', link: portfolioRoutes.PROJECTS },
   { label: 'About', link: portfolioRoutes.ABOUT },
-  { label: 'Projects', link: portfolioRoutes.PROJECTS },
+  { label: 'Contact', link: '/#contact' },
 ];
 
 const externalRoutes = {
+  EMAIL: 'oduchep@gmail.com',
   GITHUB: 'https://github.com/Oduchep',
   LINKEDIN: 'https://www.linkedin.com/in/peter-okerulu/',
   TWITTER: 'https://x.com/JuanPedro_Mario',

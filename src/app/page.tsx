@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import {
-  FeaturedProjects,
+  ExperienceSection,
   HomeHero,
-  MyExperience,
-  Testimonials,
+  SelectedWork,
+  TestimonialsSection,
 } from '@/components/sections/home';
 
 export const metadata: Metadata = {
@@ -25,11 +25,11 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div>
+    <>
       <HomeHero />
-      <FeaturedProjects />
-      <Testimonials />
-      <MyExperience />
-    </div>
+      <SelectedWork />
+      <ExperienceSection />
+      <TestimonialsSection />
+    </>
   );
 }

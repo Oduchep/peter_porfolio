@@ -1,21 +1,24 @@
 import type { Metadata } from 'next';
-import { Inter, Rubik } from 'next/font/google';
+import { Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.css';
-import {
-  Footer,
-  MotionProvider,
-  Navigations,
-} from '@/components/sections/layout';
-import { ConnectWithMe } from '@/components/widgets';
+import { Footer, Header } from '@/components/sections/layout';
+import { ContactSection } from '@/components/widgets';
 
-const inter = Inter({
-  variable: '--font-inter',
+const geist = Geist({
+  variable: '--font-geist',
   subsets: ['latin'],
 });
 
-const rubik = Rubik({
-  variable: '--font-rubik',
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
   subsets: ['latin'],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: '--font-instrument-serif',
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
 });
 
 const siteUrl = 'https://www.oduchep.com';
@@ -123,16 +126,20 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.variable} ${rubik.variable} dark:bg-primary-default text-primary-default bg-white antialiased dark:text-white`}
+        className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
       >
-        <MotionProvider>
-          <div className='flex min-h-screen flex-col'>
-            <Navigations />
-            <main>{children}</main>
-            <ConnectWithMe />
-            <Footer />
-          </div>
-        </MotionProvider>
+        <a
+          href='#main'
+          className='bg-fg text-bg sr-only z-100 rounded-full px-4 py-2 text-sm focus:not-sr-only focus:fixed focus:top-3 focus:left-3'
+        >
+          Skip to content
+        </a>
+        <div className='flex min-h-screen flex-col'>
+          <Header />
+          <main id='main'>{children}</main>
+          <ContactSection />
+          <Footer />
+        </div>
       </body>
     </html>
   );
