@@ -61,7 +61,9 @@ const Header = () => {
                     href={route.link}
                     aria-current={active ? 'page' : undefined}
                     className={`transition-colors ${
-                      active ? 'text-fg' : 'text-muted hover:text-fg'
+                      active
+                        ? 'text-fg font-semibold'
+                        : 'text-muted hover:text-fg'
                     }`}
                   >
                     {route.label}
