@@ -1,11 +1,11 @@
 const portfolioRoutes = {
   HOME: '/',
   ABOUT: '/about',
-  PROJECTS: '/projects',
+  WORK: '/work',
 };
 
 const navRoutes = [
-  { label: 'Work', link: portfolioRoutes.PROJECTS },
+  { label: 'Work', link: portfolioRoutes.WORK },
   { label: 'About', link: portfolioRoutes.ABOUT },
   { label: 'Contact', link: '/#contact' },
 ];
@@ -19,4 +19,7 @@ const externalRoutes = {
     'https://docs.google.com/document/d/1zjal7G2jNYwFlMHZ590vxRFwQMS6WrRogmIdi-RlVbg/edit?usp=sharing',
 };
 
-export { portfolioRoutes, navRoutes, externalRoutes };
+// Case study page for a project.
+const workPath = (slug: string) => `${portfolioRoutes.WORK}/${slug}`;
+
+export { portfolioRoutes, navRoutes, externalRoutes, workPath };

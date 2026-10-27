@@ -21,11 +21,11 @@ const SelectedWork = async () => {
           title='Products I’ve shipped, from restaurants and retail to fintech.'
           action={
             <ButtonLink
-              href={portfolioRoutes.PROJECTS}
+              href={portfolioRoutes.WORK}
               variant='text'
               className='hidden md:inline-flex'
             >
-              All projects <FiArrowRight aria-hidden />
+              All work <FiArrowRight aria-hidden />
             </ButtonLink>
           }
         />
@@ -42,11 +42,11 @@ const SelectedWork = async () => {
         </div>
 
         <ButtonLink
-          href={portfolioRoutes.PROJECTS}
+          href={portfolioRoutes.WORK}
           variant='secondary'
           className='mt-12 w-full md:hidden'
         >
-          All projects
+          All work
         </ButtonLink>
       </Container>
     </section>

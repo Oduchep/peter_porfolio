@@ -55,7 +55,7 @@ const HomeHero = () => {
             className='rise flex flex-wrap gap-3 md:col-span-6 md:justify-end'
             style={delay(3)}
           >
-            <ButtonLink href={portfolioRoutes.PROJECTS}>
+            <ButtonLink href={portfolioRoutes.WORK}>
               See my work
               <FiArrowRight
                 aria-hidden

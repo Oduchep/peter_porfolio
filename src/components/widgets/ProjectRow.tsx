@@ -2,11 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { ProjectType } from '@/utils/data';
+import { workPath } from '@/utils/PortfolioRoutes';
 
-// Compact index row used on the projects page.
+// Compact index row used on the work page.
 const ProjectRow = ({ project }: { project: ProjectType }) => (
   <Link
-    href={`/projects/${project.slug}`}
+    href={workPath(project.slug)}
     className='group border-line grid grid-cols-[88px_1fr_auto] items-center gap-4 border-b py-5 sm:grid-cols-[140px_1fr_auto] sm:gap-6 md:grid-cols-[160px_1fr_220px_auto]'
   >
     <div className='border-line bg-surface overflow-hidden rounded-md border'>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { CaseStudy } from '@/components/sections/projects';
+import { CaseStudy } from '@/components/sections/work';
 import { getProject, Projects } from '@/utils/data';
 import { canEmbed } from '@/utils/embed';
 
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const project = getProject((await params).slug);
   if (!project) return {};
 
-  const url = `${siteUrl}/projects/${project.slug}`;
+  const url = `${siteUrl}/work/${project.slug}`;
   return {
     title: project.name,
     description: project.summary,
