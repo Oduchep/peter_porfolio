@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter, Rubik } from 'next/font/google';
 import './globals.css';
-import { Footer, Navigations } from '@/components/sections/layout';
+import {
+  Footer,
+  MotionProvider,
+  Navigations,
+} from '@/components/sections/layout';
 import { ConnectWithMe } from '@/components/widgets';
 
 const inter = Inter({
@@ -101,26 +105,34 @@ const personSchema = {
   ],
 };
 
+const themeScript = `try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.remove('dark')}catch(e){}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className='dark'>
+    <html lang='en' className='dark' suppressHydrationWarning>
       <head>
+        {/* Apply the saved theme before first paint to avoid a flash */}
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body className={`${inter.variable} ${rubik.variable} antialiased`}>
-        <div className='dark:bg-primary-default text-primary-default flex h-screen flex-col overflow-y-auto dark:text-white'>
-          <Navigations />
-          <div>{children}</div>
-          <ConnectWithMe />
-          <Footer />
-        </div>
+      <body
+        className={`${inter.variable} ${rubik.variable} dark:bg-primary-default text-primary-default bg-white antialiased dark:text-white`}
+      >
+        <MotionProvider>
+          <div className='flex min-h-screen flex-col'>
+            <Navigations />
+            <main>{children}</main>
+            <ConnectWithMe />
+            <Footer />
+          </div>
+        </MotionProvider>
       </body>
     </html>
   );

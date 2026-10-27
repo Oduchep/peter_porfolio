@@ -37,7 +37,14 @@ html,
 body {
   font-family: var(--font-rubik);
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* clip (not hidden) so the page scrolls on the window and sticky nav works */
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 h1,

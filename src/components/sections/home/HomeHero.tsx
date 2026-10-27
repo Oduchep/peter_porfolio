@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { CustomButton } from '@/components/elements';
 import { GetSkillsBadge } from '@/components/widgets';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FiArrowRight, FiDownload, FiMapPin } from 'react-icons/fi';
 
 import { externalRoutes, portfolioRoutes } from '@/utils/PortfolioRoutes';
@@ -273,20 +274,20 @@ const HomeHero = () => {
                 Explore
               </p>
               <div className='mt-2 flex flex-col gap-2'>
-                <a
+                <Link
                   href={portfolioRoutes.PROJECTS}
                   className='inline-flex items-center gap-2 text-sm font-medium'
                 >
                   My projects
                   <FiArrowRight />
-                </a>
-                <a
+                </Link>
+                <Link
                   href={portfolioRoutes.ABOUT}
                   className='inline-flex items-center gap-2 text-sm font-medium'
                 >
                   About Me
                   <FiArrowRight />
-                </a>
+                </Link>
               </div>
             </motion.div>
           </div>

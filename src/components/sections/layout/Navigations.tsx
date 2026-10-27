@@ -9,6 +9,7 @@ const Navigations = () => {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -21,7 +22,7 @@ const Navigations = () => {
           : 'bg-white dark:bg-primary-default'
       }`}
     >
-      <div className='hidden lg:block' aria-hidden='true'>
+      <div className='hidden lg:block'>
         <DesktopNav />
       </div>
 

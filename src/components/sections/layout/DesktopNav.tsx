@@ -33,19 +33,25 @@ const DesktopNav = () => {
 
         <div className='flex items-center gap-10'>
           <ul className='flex justify-around gap-8'>
-            {navRoutes?.map((route, index) => (
-              <Link
-                key={index}
-                href={route.link}
-                className={`${
-                  pathname === route?.link
-                    ? 'border-tertiary-default dark:border-secondary-default text-tertiary-default dark:text-secondary-default border-b-2 font-medium'
-                    : 'hover:-translate-y-1 dark:text-white'
-                } all__trans px-1`}
-              >
-                <li>{route.label}</li>
-              </Link>
-            ))}
+            {navRoutes?.map((route) => {
+              const isActive = pathname === route.link;
+
+              return (
+                <li key={route.link}>
+                  <Link
+                    href={route.link}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`${
+                      isActive
+                        ? 'border-tertiary-default dark:border-secondary-default text-tertiary-default dark:text-secondary-default border-b-2 font-medium'
+                        : 'hover:-translate-y-1 dark:text-white'
+                    } all__trans inline-block px-1`}
+                  >
+                    {route.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <div className='flex items-center gap-5'>

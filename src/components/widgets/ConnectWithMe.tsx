@@ -115,7 +115,7 @@ const ConnectWithMe = () => {
         transition={{ duration: 0.65, ease: EASE }}
         className='relative flex flex-col gap-5'
       >
-        <Heading2 text="Let's Connect 🤝" />
+        <Heading2 text="Let's Connect" />
 
         <div className='relative z-10 flex flex-col gap-5'>
           <p className='leading-9'>

@@ -1,10 +1,8 @@
-import React from 'react';
-
 const Footer = () => {
   return (
-    <div className='mt-auto px-10 py-5 text-center text-sm'>
-      &copy; 2026 Peter Okerulu. All rights reserved.
-    </div>
+    <footer className='mt-auto px-10 py-5 text-center text-sm'>
+      &copy; {new Date().getFullYear()} Peter Okerulu. All rights reserved.
+    </footer>
   );
 };
 
