@@ -1,5 +1,5 @@
 export const getYearsOfExperience = (
-  startDate: Date = new Date('2020-01-01')
+  startDate: Date = new Date('2020-07-01')
 ): string => {
   const now = new Date();
 

@@ -33,7 +33,7 @@ const AboutHero = () => (
             support growth, collaboration and long-term maintenance.
           </p>
           <p>
-            Since starting out in 2019 I&apos;ve worked across agency, contract
+            Since starting out in 2020 I&apos;ve worked across agency, contract
             and startup teams. Today I lead frontend at MAJFintech, where I mix
             hands-on execution, mentoring and product thinking.
           </p>
