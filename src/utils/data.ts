@@ -234,10 +234,10 @@ export const Experiences = [
     duration: 'Jan 2023 - Present',
     location: 'Abuja, Nigeria',
     description: [
-      'Own frontend architecture for Akilaah, a Next.js and TypeScript SaaS platform for cooperative savings, loans and welfare.',
-      'Led a full UX/UI redesign that modernized the brand and reduced friction in everyday workflows.',
-      'Run code reviews and technical planning to keep code quality and standards consistent across the team.',
-      'Mentor interns and junior developers through their first production features.',
+      'Own frontend architecture for Akilaah, a Next.js and TypeScript SaaS platform used by 15+ cooperatives and 20,000+ members.',
+      'Led a full UX/UI redesign that raised engagement by 12%, cut task completion time by 8% and modernized the brand.',
+      'Lead a team of 2 frontend engineers; set code review standards and introduced a shared component library, automated testing and CI checks.',
+      'Mentored 2 interns to their first production features.',
       'Work directly with stakeholders to turn business requirements into scoped, shippable features.',
     ],
   },
@@ -249,8 +249,8 @@ export const Experiences = [
     location: 'Remote',
     description: [
       'Rebuilt stakecut.com navigation and tuned performance, raising user retention by 30%.',
-      'Built a Next.js admin dashboard with real-time analytics for transactions and user activity.',
-      'Reworked API integration and data fetching to cut load times.',
+      'Built a Next.js admin dashboard with real-time Recharts analytics for transactions and user activity.',
+      'Reworked API integration and data fetching, cutting load times by 50%.',
     ],
   },
   {
@@ -262,7 +262,7 @@ export const Experiences = [
     description: [
       'Built a responsive recruitment web app with Next.js and Tailwind CSS; Core Web Vitals work cut bounce rate by 25%.',
       'Designed and built a digital wallet for paid job listings, driving an 18% increase in company revenue.',
-      'Built real-time chat connecting employers and applicants directly.',
+      'Built real-time employer–applicant chat with Socket.io, raising return visits by 20%.',
       'Led technical SEO that grew organic search traffic by 22%.',
     ],
   },
@@ -273,7 +273,7 @@ export const Experiences = [
     duration: 'Mar 2021 - Jan 2022',
     location: 'Remote',
     description: [
-      'Built and deployed custom WordPress themes for client sites.',
+      'Built and deployed custom WordPress themes for 16+ client sites.',
       'Optimized 60+ pages for SEO and page speed, improving rankings and Core Web Vitals scores.',
     ],
   },
